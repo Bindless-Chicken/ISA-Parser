@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<h2>Index</h2>
+<ul>
+{% for class in site.data.out.isa %}
+    <li>
+        <a href="instructions/{{class.key}}">
+            {{ class.name }}
+        </a>
+        <ul>
+            {% for inst in class.instructions %}
+                <li>
+                    <a href="instructions/{{class.key}}#{{inst.name}}">
+                        {{ inst.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+</ul>

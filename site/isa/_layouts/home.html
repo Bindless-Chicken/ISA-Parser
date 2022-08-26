@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+{{content}}
+
+<h2>Instruction class</h2>
+<ul>
+    {% for class in site.data.out.isa %}
+    <li>
+        <a href="instructions/{{class.key}}">
+            {{ class.name }}
+        </a>
+    </li>
+{% endfor %}
+</ul>

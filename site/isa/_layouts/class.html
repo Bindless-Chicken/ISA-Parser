@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<h2>{{ page.title }}</h2>
+
+<ul>
+{% for instruction in page.instructions %}
+<li>
+    <p id="{{instruction.name}}"><b>{{ instruction.name }}</b> - <i>{{ instruction.short }}</i></p>
+    <p>{{ instruction.description | markdownify }}</p>
+</li>
+{% endfor %}
+</ul>

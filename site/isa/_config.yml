@@ -1,0 +1,22 @@
+title: AMD RDNA ISA
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: bindlesschicken
+github_username:  Bindless-Chicken
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+page_gen-dirs: false
+
+header_pages:
+  - list.md
+
+page_gen:
+- data: out.isa
+  template: class
+  dir: instructions
+  name: key
+  title: name
