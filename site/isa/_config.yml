@@ -15,8 +15,9 @@ header_pages:
   - list.md
 
 page_gen:
-- data: out.isa
-  template: class
-  dir: instructions
-  name: key
-  title: name
+  - data: out.isa
+    template: class
+    dir: instructions
+    name: key
+    title: name
+    debug: true
