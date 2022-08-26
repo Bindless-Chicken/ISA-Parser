@@ -30,10 +30,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./site/isa/
-          destination: ./_site
+        run: bundle exec jekyll build --source "./site/isa/"
+        env:
+          JEKYLL_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
