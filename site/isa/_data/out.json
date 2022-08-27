@@ -888,109 +888,109 @@
                     "opcode": "0",
                     "name": "S_CMP_EQ_I32",
                     "short": "Compare two integers for equality",
-                    "description": "Compare two integers for equality.  Note that S_CMP_EQ_I32 and S_CMP_EQ_U32 are identical opcodes, but both are provided for symmetry. SCC = (S0 == S1)."
+                    "description": "Compare two integers for equality. Note that S_CMP_EQ_I32 and S_CMP_EQ_U32 are identical opcodes, but both are provided for symmetry.\n```\nSCC = (S0 == S1).\n```"
                 },
                 {
                     "opcode": "1",
                     "name": "S_CMP_LG_I32",
                     "short": "Compare two integers for inequality",
-                    "description": "Compare two integers for inequality.  Note that S_CMP_LG_I32 and S_CMP_LG_U32 are identical opcodes, but both are provided for symmetry. SCC = (S0 != S1)."
+                    "description": "Compare two integers for inequality. Note that S_CMP_LG_I32 and S_CMP_LG_U32 are identical opcodes, but both are provided for symmetry.\n```\nSCC = (S0 != S1).\n```"
                 },
                 {
                     "opcode": "2",
                     "name": "S_CMP_GT_I32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.i > S1.i)."
+                    "short": "SCC = (S0.i > S1.i)",
+                    "description": "```\nSCC = (S0.i > S1.i).\n```"
                 },
                 {
                     "opcode": "3",
                     "name": "S_CMP_GE_I32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.i >= S1.i)."
+                    "short": "SCC = (S0.i >= S1.i)",
+                    "description": "```\nSCC = (S0.i >= S1.i).\n```"
                 },
                 {
                     "opcode": "4",
                     "name": "S_CMP_LT_I32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.i < S1.i)."
+                    "short": "SCC = (S0.i < S1.i)",
+                    "description": "```\nSCC = (S0.i < S1.i).\n```"
                 },
                 {
                     "opcode": "5",
                     "name": "S_CMP_LE_I32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.i <= S1.i)."
+                    "short": "SCC = (S0.i <= S1.i)",
+                    "description": "```\nSCC = (S0.i <= S1.i).\n```"
                 },
                 {
                     "opcode": "6",
                     "name": "S_CMP_EQ_U32",
                     "short": "Compare two integers for equality",
-                    "description": "Compare two integers for equality.  Note that S_CMP_EQ_I32 and S_CMP_EQ_U32 are identical opcodes, but both are provided for symmetry. SCC = (S0 == S1)."
+                    "description": "Compare two integers for equality. Note that S_CMP_EQ_I32 and S_CMP_EQ_U32 are identical opcodes, but both are provided for symmetry.\n```\nSCC = (S0 == S1).\n```"
                 },
                 {
                     "opcode": "7",
                     "name": "S_CMP_LG_U32",
                     "short": "Compare two integers for inequality",
-                    "description": "Compare two integers for inequality.  Note that S_CMP_LG_I32 and S_CMP_LG_U32 are identical opcodes, but both are provided for symmetry. SCC = (S0 != S1)."
+                    "description": "Compare two integers for inequality. Note that S_CMP_LG_I32 and S_CMP_LG_U32 are identical opcodes, but both are provided for symmetry.\n```\nSCC = (S0 != S1).\n```"
                 },
                 {
                     "opcode": "8",
                     "name": "S_CMP_GT_U32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u > S1.u)."
+                    "short": "SCC = (S0.u > S1.u)",
+                    "description": "```\nSCC = (S0.u > S1.u).\n```"
                 },
                 {
                     "opcode": "9",
                     "name": "S_CMP_GE_U32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u >= S1.u)."
+                    "short": "SCC = (S0.u >= S1.u)",
+                    "description": "```\nSCC = (S0.u >= S1.u).\n```"
                 },
                 {
                     "opcode": "10",
                     "name": "S_CMP_LT_U32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u < S1.u)."
+                    "short": "SCC = (S0.u < S1.u)",
+                    "description": "```\nSCC = (S0.u < S1.u).\n```"
                 },
                 {
                     "opcode": "11",
                     "name": "S_CMP_LE_U32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u <= S1.u)."
+                    "short": "SCC = (S0.u <= S1.u)",
+                    "description": "```\nSCC = (S0.u <= S1.u).\n```"
                 },
                 {
                     "opcode": "12",
                     "name": "S_BITCMP0_B32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u[S1.u[4:0]] == 0)."
+                    "short": "SCC = (S0.u[S1.u[4:0]] == 0)",
+                    "description": "```\nSCC = (S0.u[S1.u[4:0]] == 0).\n```"
                 },
                 {
                     "opcode": "13",
                     "name": "S_BITCMP1_B32",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u[S1.u[4:0]] == 1)."
+                    "short": "SCC = (S0.u[S1.u[4:0]] == 1)",
+                    "description": "```\nSCC = (S0.u[S1.u[4:0]] == 1).\n```"
                 },
                 {
                     "opcode": "14",
                     "name": "S_BITCMP0_B64",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u64[S1.u[5:0]] == 0)."
+                    "short": "SCC = (S0.u64[S1.u[5:0]] == 0)",
+                    "description": "```\nSCC = (S0.u64[S1.u[5:0]] == 0).\n```"
                 },
                 {
                     "opcode": "15",
                     "name": "S_BITCMP1_B64",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.u64[S1.u[5:0]] == 1)."
+                    "short": "SCC = (S0.u64[S1.u[5:0]] == 1)",
+                    "description": "```\nSCC = (S0.u64[S1.u[5:0]] == 1).\n```"
                 },
                 {
                     "opcode": "18",
                     "name": "S_CMP_EQ_U64",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.i64 == S1.i64)."
+                    "short": "SCC = (S0.i64 == S1.i64)",
+                    "description": "```\nSCC = (S0.i64 == S1.i64).\n```"
                 },
                 {
                     "opcode": "19",
                     "name": "S_CMP_LG_U64",
-                    "short": "SCC = (S0",
-                    "description": "SCC = (S0.i64 != S1.i64)."
+                    "short": "SCC = (S0.i64 != S1.i64)",
+                    "description": "```\nSCC = (S0.i64 != S1.i64).\n```"
                 }
             ]
         },
