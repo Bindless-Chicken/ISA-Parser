@@ -491,391 +491,391 @@
                     "opcode": "3",
                     "name": "S_MOV_B32",
                     "short": "Move data to an SGPR",
-                    "description": "Move data to an SGPR. D.u = S0.u."
+                    "description": "Move data to an SGPR.\n```\nD.u = S0.u.\n```"
                 },
                 {
                     "opcode": "4",
                     "name": "S_MOV_B64",
                     "short": "Move data to an SGPR",
-                    "description": "Move data to an SGPR. D.u64 = S0.u64."
+                    "description": "Move data to an SGPR.\n```\nD.u64 = S0.u64.\n```"
                 },
                 {
                     "opcode": "5",
                     "name": "S_CMOV_B32",
                     "short": "Conditionally move data to an SGPR when scalar condition code is true",
-                    "description": "Conditionally move data to an SGPR when scalar condition code is true. if(SCC) then D.u = S0.u; endif."
+                    "description": "Conditionally move data to an SGPR when scalar condition code is true.\n```\nif(SCC) then\n\tD.u = S0.u;\nendif.\n```"
                 },
                 {
                     "opcode": "6",
                     "name": "S_CMOV_B64",
                     "short": "Conditionally move data to an SGPR when scalar condition code is true",
-                    "description": "Conditionally move data to an SGPR when scalar condition code is true. if(SCC) then D.u64 = S0.u64; endif."
+                    "description": "Conditionally move data to an SGPR when scalar condition code is true.\n```\nif(SCC) then\n\tD.u64 = S0.u64;\nendif.\n```"
                 },
                 {
                     "opcode": "7",
                     "name": "S_NOT_B32",
                     "short": "Bitwise negation",
-                    "description": "Bitwise negation. D = ~S0; SCC = (D != 0)."
+                    "description": "Bitwise negation.\n```\nD = ~S0;\nSCC = (D != 0).\n```"
                 },
                 {
                     "opcode": "8",
                     "name": "S_NOT_B64",
                     "short": "Bitwise negation",
-                    "description": "Bitwise negation. D = ~S0; SCC = (D != 0)."
+                    "description": "Bitwise negation.\n```\nD = ~S0;\nSCC = (D != 0).\n```"
                 },
                 {
                     "opcode": "9",
                     "name": "S_WQM_B32",
                     "short": "Computes whole quad mode for an active/valid mask",
-                    "description": "Computes whole quad mode for an active/valid mask.  If any pixel in a quad is active, all pixels of the quad are marked active. for i in 0 ... opcode_size_in_bits - 1 do D[i] = (S0[(i & ~3):(i | 3)] != 0); endfor; SCC = (D != 0)."
+                    "description": "Computes whole quad mode for an active/valid mask. If any pixel in a quad is active, all pixels of the quad are marked active.\n```\nfor i in 0 ... opcode_size_in_bits - 1 do\n\tD[i] = (S0[(i & ~3):(i | 3)] != 0);\nendfor;\nSCC = (D != 0).\n```"
                 },
                 {
                     "opcode": "10",
                     "name": "S_WQM_B64",
                     "short": "Computes whole quad mode for an active/valid mask",
-                    "description": "Computes whole quad mode for an active/valid mask.  If any pixel in a quad is active, all pixels of the quad are marked active. for i in 0 ... opcode_size_in_bits - 1 do D[i] = (S0[(i & ~3):(i | 3)] != 0); endfor; SCC = (D != 0)."
+                    "description": "Computes whole quad mode for an active/valid mask. If any pixel in a quad is active, all pixels of the quad are marked active.\n```\nfor i in 0 ... opcode_size_in_bits - 1 do\n\tD[i] = (S0[(i & ~3):(i | 3)] != 0);\nendfor;\nSCC = (D != 0).\n```"
                 },
                 {
                     "opcode": "11",
                     "name": "S_BREV_B32",
                     "short": "Reverse bits",
-                    "description": "Reverse bits. D.u[31:0] = S0.u[0:31]."
+                    "description": "Reverse bits.\n```\nD.u[31:0] = S0.u[0:31].\n```"
                 },
                 {
                     "opcode": "12",
                     "name": "S_BREV_B64",
                     "short": "Reverse bits",
-                    "description": "Reverse bits. D.u64[63:0] = S0.u64[0:63]."
+                    "description": "Reverse bits.\n```\nD.u64[63:0] = S0.u64[0:63].\n```"
                 },
                 {
                     "opcode": "13",
                     "name": "S_BCNT0_I32_B32",
                     "short": "Count number of bits that are zero",
-                    "description": "Count number of bits that are zero. D = 0; for i in 0 ... opcode_size_in_bits - 1 do D += (S0[i] == 0 ? 1 : 0) endfor; SCC = (D != 0). Functional examples: S_BCNT0_I32_B32(0x00000000) => 32 S_BCNT0_I32_B32(0xcccccccc) => 16 S_BCNT0_I32_B32(0xffffffff) => 0"
+                    "description": "Count number of bits that are zero.\n```\nD = 0;\nfor i in 0 ... opcode_size_in_bits - 1 do\n\tD += (S0[i] == 0 ? 1 : 0)\nendfor;\nSCC = (D != 0).\n```\nFunctional examples:\n * S_BCNT0_I32_B32(0x00000000) => 32\n * S_BCNT0_I32_B32(0xcccccccc) => 16\n * S_BCNT0_I32_B32(0xffffffff) => 0"
                 },
                 {
                     "opcode": "14",
                     "name": "S_BCNT0_I32_B64",
                     "short": "Count number of bits that are zero",
-                    "description": "Count number of bits that are zero. D = 0; for i in 0 ... opcode_size_in_bits - 1 do D += (S0[i] == 0 ? 1 : 0) endfor; SCC = (D != 0). Functional examples: S_BCNT0_I32_B32(0x00000000) => 32 S_BCNT0_I32_B32(0xcccccccc) => 16 S_BCNT0_I32_B32(0xffffffff) => 0"
+                    "description": "Count number of bits that are zero.\n```\nD = 0;\nfor i in 0 ... opcode_size_in_bits - 1 do\n\tD += (S0[i] == 0 ? 1 : 0)\nendfor;\nSCC = (D != 0).\n```\nFunctional examples:\n * S_BCNT0_I32_B32(0x00000000) => 32\n * S_BCNT0_I32_B32(0xcccccccc) => 16\n * S_BCNT0_I32_B32(0xffffffff) => 0"
                 },
                 {
                     "opcode": "15",
                     "name": "S_BCNT1_I32_B32",
                     "short": "Count number of bits that are one",
-                    "description": "Count number of bits that are one. D = 0; for i in 0 ... opcode_size_in_bits - 1 do D += (S0[i] == 1 ? 1 : 0) endfor; SCC = (D != 0). Functional examples: S_BCNT1_I32_B32(0x00000000) => 0 S_BCNT1_I32_B32(0xcccccccc) => 16 S_BCNT1_I32_B32(0xffffffff) => 32"
+                    "description": "Count number of bits that are one.\n```\nD = 0;\nfor i in 0 ... opcode_size_in_bits - 1 do\n\tD += (S0[i] == 1 ? 1 : 0)\nendfor;\nSCC = (D != 0).\n```\nFunctional examples:\n * S_BCNT1_I32_B32(0x00000000) => 0\n * S_BCNT1_I32_B32(0xcccccccc) => 16\n * S_BCNT1_I32_B32(0xffffffff) => 32"
                 },
                 {
                     "opcode": "16",
                     "name": "S_BCNT1_I32_B64",
                     "short": "Count number of bits that are one",
-                    "description": "Count number of bits that are one. D = 0; for i in 0 ... opcode_size_in_bits - 1 do D += (S0[i] == 1 ? 1 : 0) endfor; SCC = (D != 0). Functional examples: S_BCNT1_I32_B32(0x00000000) => 0 S_BCNT1_I32_B32(0xcccccccc) => 16 S_BCNT1_I32_B32(0xffffffff) => 32"
+                    "description": "Count number of bits that are one.\n```\nD = 0;\nfor i in 0 ... opcode_size_in_bits - 1 do\n\tD += (S0[i] == 1 ? 1 : 0)\nendfor;\nSCC = (D != 0).\n```\nFunctional examples:\n * S_BCNT1_I32_B32(0x00000000) => 0\n * S_BCNT1_I32_B32(0xcccccccc) => 16\n * S_BCNT1_I32_B32(0xffffffff) => 32"
                 },
                 {
                     "opcode": "17",
                     "name": "S_FF0_I32_B32",
                     "short": "Returns the bit position of the first zero from the LSB (least significant bit), or -1 if there are no zeros",
-                    "description": "Returns the bit position of the first zero from the LSB (least significant bit), or -1 if there are no zeros. D.i = -1; // Set if no zeros are found for i in 0 ... opcode_size_in_bits - 1 do // Search from LSB if S0[i] == 0 then D.i = i; break for; endif; endfor. Functional examples: S_FF0_I32_B32(0xaaaaaaaa) => 0 S_FF0_I32_B32(0x55555555) => 1 S_FF0_I32_B32(0x00000000) => 0 S_FF0_I32_B32(0xffffffff) => 0xffffffff S_FF0_I32_B32(0xfffeffff) => 16"
+                    "description": "Returns the bit position of the first zero from the LSB (least significant bit), or -1 if there are no zeros.\n```\nD.i = -1; // Set if no zeros are found\nfor i in 0 ... opcode_size_in_bits - 1 do // Search from LSB\n\tif S0[i] == 0 then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FF0_I32_B32(0xaaaaaaaa) => 0\n * S_FF0_I32_B32(0x55555555) => 1\n * S_FF0_I32_B32(0x00000000) => 0\n * S_FF0_I32_B32(0xffffffff) => 0xffffffff\n * S_FF0_I32_B32(0xfffeffff) => 16"
                 },
                 {
                     "opcode": "18",
                     "name": "S_FF0_I32_B64",
                     "short": "Returns the bit position of the first zero from the LSB (least significant bit), or -1 if there are no zeros",
-                    "description": "Returns the bit position of the first zero from the LSB (least significant bit), or -1 if there are no zeros. D.i = -1; // Set if no zeros are found for i in 0 ... opcode_size_in_bits - 1 do // Search from LSB if S0[i] == 0 then D.i = i; break for; endif; endfor. Functional examples: S_FF0_I32_B32(0xaaaaaaaa) => 0 S_FF0_I32_B32(0x55555555) => 1 S_FF0_I32_B32(0x00000000) => 0 S_FF0_I32_B32(0xffffffff) => 0xffffffff S_FF0_I32_B32(0xfffeffff) => 16"
+                    "description": "Returns the bit position of the first zero from the LSB (least significant bit), or -1 if there are no zeros.\n```\nD.i = -1; // Set if no zeros are found\nfor i in 0 ... opcode_size_in_bits - 1 do // Search from LSB\n\tif S0[i] == 0 then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FF0_I32_B32(0xaaaaaaaa) => 0\n * S_FF0_I32_B32(0x55555555) => 1\n * S_FF0_I32_B32(0x00000000) => 0\n * S_FF0_I32_B32(0xffffffff) => 0xffffffff\n * S_FF0_I32_B32(0xfffeffff) => 16"
                 },
                 {
                     "opcode": "19",
                     "name": "S_FF1_I32_B32",
                     "short": "Returns the bit position of the first one from the LSB (least significant bit), or -1 if there are no ones",
-                    "description": "Returns the bit position of the first one from the LSB (least significant bit), or -1 if there are no ones. D.i = -1; // Set if no ones are found for i in 0 ... opcode_size_in_bits - 1 do // Search from LSB if S0[i] == 1 then D.i = i; break for; endif; endfor. Functional examples: S_FF1_I32_B32(0xaaaaaaaa) => 1 S_FF1_I32_B32(0x55555555) => 0 S_FF1_I32_B32(0x00000000) => 0xffffffff S_FF1_I32_B32(0xffffffff) => 0 S_FF1_I32_B32(0x00010000) => 16"
+                    "description": "Returns the bit position of the first one from the LSB (least significant bit), or -1 if there are no ones.\n```\nD.i = -1; // Set if no ones are found\nfor i in 0 ... opcode_size_in_bits - 1 do // Search from LSB\n\tif S0[i] == 1 then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FF1_I32_B32(0xaaaaaaaa) => 1\n * S_FF1_I32_B32(0x55555555) => 0\n * S_FF1_I32_B32(0x00000000) => 0xffffffff\n * S_FF1_I32_B32(0xffffffff) => 0\n * S_FF1_I32_B32(0x00010000) => 16"
                 },
                 {
                     "opcode": "20",
                     "name": "S_FF1_I32_B64",
                     "short": "Returns the bit position of the first one from the LSB (least significant bit), or -1 if there are no ones",
-                    "description": "Returns the bit position of the first one from the LSB (least significant bit), or -1 if there are no ones. D.i = -1; // Set if no ones are found for i in 0 ... opcode_size_in_bits - 1 do // Search from LSB if S0[i] == 1 then D.i = i; break for; endif; endfor. Functional examples: S_FF1_I32_B32(0xaaaaaaaa) => 1 S_FF1_I32_B32(0x55555555) => 0 S_FF1_I32_B32(0x00000000) => 0xffffffff S_FF1_I32_B32(0xffffffff) => 0 S_FF1_I32_B32(0x00010000) => 16"
+                    "description": "Returns the bit position of the first one from the LSB (least significant bit), or -1 if there are no ones.\n```\nD.i = -1; // Set if no ones are found\nfor i in 0 ... opcode_size_in_bits - 1 do // Search from LSB\n\tif S0[i] == 1 then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FF1_I32_B32(0xaaaaaaaa) => 1\n * S_FF1_I32_B32(0x55555555) => 0\n * S_FF1_I32_B32(0x00000000) => 0xffffffff\n * S_FF1_I32_B32(0xffffffff) => 0\n * S_FF1_I32_B32(0x00010000) => 16"
                 },
                 {
                     "opcode": "21",
                     "name": "S_FLBIT_I32_B32",
                     "short": "Counts how many zeros before the first one starting from the MSB (most significant bit)",
-                    "description": "Counts how many zeros before the first one starting from the MSB (most significant bit).  Returns -1 if there are no ones. D.i = -1; // Set if no ones are found for i in 0 ... opcode_size_in_bits - 1 do // Note: search is from the MSB if S0[opcode_size_in_bits - 1 - i] == 1 then D.i = i; break for; endif; endfor. Functional examples: S_FLBIT_I32_B32(0x00000000) => 0xffffffff S_FLBIT_I32_B32(0x0000cccc) => 16 S_FLBIT_I32_B32(0xffff3333) => 0 S_FLBIT_I32_B32(0x7fffffff) => 1 S_FLBIT_I32_B32(0x80000000) => 0 S_FLBIT_I32_B32(0xffffffff) => 0"
+                    "description": "Counts how many zeros before the first one starting from the MSB (most significant bit). Returns -1 if there are no ones.\n```\nD.i = -1; // Set if no ones are found\nfor i in 0 ... opcode_size_in_bits - 1 do // Note: search is from the MSB\n\tif S0[opcode_size_in_bits - 1 - i] == 1 then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FLBIT_I32_B32(0x00000000) => 0xffffffff\n * S_FLBIT_I32_B32(0x0000cccc) => 16\n * S_FLBIT_I32_B32(0xffff3333) => 0\n * S_FLBIT_I32_B32(0x7fffffff) => 1\n * S_FLBIT_I32_B32(0x80000000) => 0\n * S_FLBIT_I32_B32(0xffffffff) => 0"
                 },
                 {
                     "opcode": "22",
                     "name": "S_FLBIT_I32_B64",
                     "short": "Counts how many zeros before the first one starting from the MSB (most significant bit)",
-                    "description": "Counts how many zeros before the first one starting from the MSB (most significant bit).  Returns -1 if there are no ones. D.i = -1; // Set if no ones are found for i in 0 ... opcode_size_in_bits - 1 do // Note: search is from the MSB if S0[opcode_size_in_bits - 1 - i] == 1 then D.i = i; break for; endif; endfor. Functional examples: S_FLBIT_I32_B32(0x00000000) => 0xffffffff S_FLBIT_I32_B32(0x0000cccc) => 16 S_FLBIT_I32_B32(0xffff3333) => 0 S_FLBIT_I32_B32(0x7fffffff) => 1 S_FLBIT_I32_B32(0x80000000) => 0 S_FLBIT_I32_B32(0xffffffff) => 0"
+                    "description": "Counts how many zeros before the first one starting from the MSB (most significant bit). Returns -1 if there are no ones.\n```\nD.i = -1; // Set if no ones are found\nfor i in 0 ... opcode_size_in_bits - 1 do // Note: search is from the MSB\n\tif S0[opcode_size_in_bits - 1 - i] == 1 then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FLBIT_I32_B32(0x00000000) => 0xffffffff\n * S_FLBIT_I32_B32(0x0000cccc) => 16\n * S_FLBIT_I32_B32(0xffff3333) => 0\n * S_FLBIT_I32_B32(0x7fffffff) =>\n * 1 S_FLBIT_I32_B32(0x80000000) => 0\n * S_FLBIT_I32_B32(0xffffffff) => 0"
                 },
                 {
                     "opcode": "23",
                     "name": "S_FLBIT_I32",
                     "short": "Counts how many bits in a row (from MSB to LSB) are the same as the sign bit",
-                    "description": "Counts how many bits in a row (from MSB to LSB) are the same as the sign bit.  Returns -1 if all bits are the same. D.i = -1; // Set if all bits are the same for i in 1 ... opcode_size_in_bits - 1 do // Note: search is from the MSB if S0[opcode_size_in_bits - 1 - i] != S0[opcode_size_in_bits - 1] then D.i = i; break for; endif; endfor. Functional examples: S_FLBIT_I32(0x00000000) => 0xffffffff S_FLBIT_I32(0x0000cccc) => 16 S_FLBIT_I32(0xffff3333) => 16 S_FLBIT_I32(0x7fffffff) => 1 S_FLBIT_I32(0x80000000) => 1 S_FLBIT_I32(0xffffffff) => 0xffffffff"
+                    "description": "Counts how many bits in a row (from MSB to LSB) are the same as the sign bit. Returns -1 if all bits are the same.\n```\nD.i = -1; // Set if all bits are the same\nfor i in 1 ... opcode_size_in_bits - 1 do // Note: search is from the MSB\n\tif S0[opcode_size_in_bits - 1 - i] != S0[opcode_size_in_bits - 1] then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FLBIT_I32(0x00000000) => 0xffffffff\n * S_FLBIT_I32(0x0000cccc) => 16\n * S_FLBIT_I32(0xffff3333) => 16\n * S_FLBIT_I32(0x7fffffff) => 1\n * S_FLBIT_I32(0x80000000) => 1\n * S_FLBIT_I32(0xffffffff) => 0xffffffff"
                 },
                 {
                     "opcode": "24",
                     "name": "S_FLBIT_I32_I64",
                     "short": "Counts how many bits in a row (from MSB to LSB) are the same as the sign bit",
-                    "description": "Counts how many bits in a row (from MSB to LSB) are the same as the sign bit.  Returns -1 if all bits are the same. D.i = -1; // Set if all bits are the same for i in 1 ... opcode_size_in_bits - 1 do // Note: search is from the MSB if S0[opcode_size_in_bits - 1 - i] != S0[opcode_size_in_bits - 1] then D.i = i; break for; endif; endfor. Functional examples: S_FLBIT_I32(0x00000000) => 0xffffffff S_FLBIT_I32(0x0000cccc) => 16 S_FLBIT_I32(0xffff3333) => 16 S_FLBIT_I32(0x7fffffff) => 1 S_FLBIT_I32(0x80000000) => 1 S_FLBIT_I32(0xffffffff) => 0xffffffff"
+                    "description": "Counts how many bits in a row (from MSB to LSB) are the same as the sign bit. Returns -1 if all bits are the same.\n```\nD.i = -1; // Set if all bits are the same\nfor i in 1 ... opcode_size_in_bits - 1 do // Note: search is from the MSB\n\tif S0[opcode_size_in_bits - 1 - i] != S0[opcode_size_in_bits - 1] then\n\t\tD.i = i;\n\t\tbreak for;\n\tendif;\nendfor.\n```\nFunctional examples:\n * S_FLBIT_I32(0x00000000) => 0xffffffff\n * S_FLBIT_I32(0x0000cccc) => 16\n * S_FLBIT_I32(0xffff3333) => 16\n * S_FLBIT_I32(0x7fffffff) => 1\n * S_FLBIT_I32(0x80000000) => 1\n * S_FLBIT_I32(0xffffffff) => 0xffffffff"
                 },
                 {
                     "opcode": "25",
                     "name": "S_SEXT_I32_I8",
                     "short": "Sign extension of a signed byte",
-                    "description": "Sign extension of a signed byte. D.i = signext(S0.i[7:0])."
+                    "description": "Sign extension of a signed byte.\n```\nD.i = signext(S0.i[7:0]).\n```"
                 },
                 {
                     "opcode": "26",
                     "name": "S_SEXT_I32_I16",
                     "short": "Sign extension of a signed short",
-                    "description": "Sign extension of a signed short. D.i = signext(S0.i[15:0])."
+                    "description": "Sign extension of a signed short.\n```\nD.i = signext(S0.i[15:0]).\n```"
                 },
                 {
                     "opcode": "27",
                     "name": "S_BITSET0_B32",
                     "short": "Set a specific bit to zero",
-                    "description": "Set a specific bit to zero. D.u[S0.u[4:0]] = 0."
+                    "description": "Set a specific bit to zero.\n```\nD.u[S0.u[4:0]] = 0.\n```"
                 },
                 {
                     "opcode": "28",
                     "name": "S_BITSET0_B64",
                     "short": "Set a specific bit to zero",
-                    "description": "Set a specific bit to zero. D.u64[S0.u[5:0]] = 0."
+                    "description": "Set a specific bit to zero.\n```\nD.u64[S0.u[5:0]] = 0.\n```"
                 },
                 {
                     "opcode": "29",
                     "name": "S_BITSET1_B32",
                     "short": "Set a specific bit to one",
-                    "description": "Set a specific bit to one. D.u[S0.u[4:0]] = 1."
+                    "description": "Set a specific bit to one.\n```\nD.u[S0.u[4:0]] = 1.\n```"
                 },
                 {
                     "opcode": "30",
                     "name": "S_BITSET1_B64",
                     "short": "Set a specific bit to one",
-                    "description": "Set a specific bit to one. D.u64[S0.u[5:0]] = 1."
+                    "description": "Set a specific bit to one.\n```\nD.u64[S0.u[5:0]] = 1.\n```"
                 },
                 {
                     "opcode": "31",
                     "name": "S_GETPC_B64",
                     "short": "Save current program location",
-                    "description": "Save current program location.  Destination receives the byte address of the next instruction. D.u64 = PC + 4."
+                    "description": "Save current program location. Destination receives the byte address of the next instruction.\n```\nD.u64 = PC + 4.\n```"
                 },
                 {
                     "opcode": "32",
                     "name": "S_SETPC_B64",
                     "short": "Jump to a new location",
-                    "description": "Jump to a new location.  S0.u64 is a byte address of the instruction to jump to. PC = S0.u64."
+                    "description": "Jump to a new location. S0.u64 is a byte address of the instruction to jump to.\n```\nPC = S0.u64.\n```"
                 },
                 {
                     "opcode": "33",
                     "name": "S_SWAPPC_B64",
                     "short": "Save current program location and jump to a new location",
-                    "description": "Save current program location and jump to a new location. S0.u64 is a byte address of the instruction to jump to. Destination receives the byte address of the instruction immediately following the SWAPPC instruction. D.u64 = PC + 4; PC = S0.u64."
+                    "description": "Save current program location and jump to a new location. S0.u64 is a byte address of the instruction to jump to. Destination receives the byte address of the instruction immediately following the SWAPPC instruction.\n```\nD.u64 = PC + 4;\nPC = S0.u64.\n```"
                 },
                 {
                     "opcode": "34",
                     "name": "S_RFE_B64",
                     "short": "Return from exception handler and continue",
-                    "description": "Return from exception handler and continue.  This instruction may only be used within a trap handler. PRIV = 0; PC = S0.u64."
+                    "description": "Return from exception handler and continue. This instruction may only be used within a trap handler.\n```\nPRIV = 0;\nPC = S0.u64.\n```"
                 },
                 {
                     "opcode": "36",
                     "name": "S_AND_SAVEEXEC_B64",
                     "short": "Bitwise AND with EXEC mask",
-                    "description": "Bitwise AND with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = S0.u64 & EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise AND with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = S0.u64 & EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "37",
                     "name": "S_OR_SAVEEXEC_B64",
                     "short": "Bitwise OR with EXEC mask",
-                    "description": "Bitwise OR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = S0.u64 | EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise OR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = S0.u64 | EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "38",
                     "name": "S_XOR_SAVEEXEC_B64",
                     "short": "Bitwise XOR with EXEC mask",
-                    "description": "Bitwise XOR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = S0.u64 ^ EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise XOR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = S0.u64 ^ EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "39",
                     "name": "S_ANDN2_SAVEEXEC_B64",
                     "short": "Bitwise ANDN2 with EXEC mask",
-                    "description": "Bitwise ANDN2 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = S0.u64 & ~EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise ANDN2 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = S0.u64 & ~EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "40",
                     "name": "S_ORN2_SAVEEXEC_B64",
                     "short": "Bitwise ORN2 with EXEC mask",
-                    "description": "Bitwise ORN2 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = S0.u64 | ~EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise ORN2 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = S0.u64 | ~EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "41",
                     "name": "S_NAND_SAVEEXEC_B64",
                     "short": "Bitwise NAND with EXEC mask",
-                    "description": "Bitwise NAND with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = ~(S0.u64 & EXEC); SCC = (EXEC != 0)."
+                    "description": "Bitwise NAND with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = ~(S0.u64 & EXEC);\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "42",
                     "name": "S_NOR_SAVEEXEC_B64",
                     "short": "Bitwise NOR with EXEC mask",
-                    "description": "Bitwise NOR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = ~(S0.u64 | EXEC); SCC = (EXEC != 0)."
+                    "description": "Bitwise NOR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = ~(S0.u64 | EXEC);\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "43",
                     "name": "S_XNOR_SAVEEXEC_B64",
                     "short": "Bitwise XNOR with EXEC mask",
-                    "description": "Bitwise XNOR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = ~(S0.u64 ^ EXEC); SCC = (EXEC != 0)."
+                    "description": "Bitwise XNOR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = ~(S0.u64 ^ EXEC);\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "44",
                     "name": "S_QUADMASK_B32",
                     "short": "Reduce a pixel mask to a quad mask",
-                    "description": "Reduce a pixel mask to a quad mask.  To perform the inverse operation see S_BITREPLICATE_B64_B32. D = 0; for i in 0 ... (opcode_size_in_bits / 4) - 1 do D[i] = (S0[i * 4 + 3:i * 4] != 0); endfor; SCC = (D != 0)."
+                    "description": "Reduce a pixel mask to a quad mask. To perform the inverse operation see S_BITREPLICATE_B64_B32.\n```\nD = 0;\nfor i in 0 ... (opcode_size_in_bits / 4) - 1 do\n\tD[i] = (S0[i * 4 + 3:i * 4] != 0);\nendfor;\nSCC = (D != 0).\n```"
                 },
                 {
                     "opcode": "45",
                     "name": "S_QUADMASK_B64",
                     "short": "Reduce a pixel mask to a quad mask",
-                    "description": "Reduce a pixel mask to a quad mask.  To perform the inverse operation see S_BITREPLICATE_B64_B32. D = 0; for i in 0 ... (opcode_size_in_bits / 4) - 1 do D[i] = (S0[i * 4 + 3:i * 4] != 0); endfor; SCC = (D != 0)."
+                    "description": "Reduce a pixel mask to a quad mask. To perform the inverse operation see S_BITREPLICATE_B64_B32.\n```\nD = 0;\nfor i in 0 ... (opcode_size_in_bits / 4) - 1 do\n\tD[i] = (S0[i * 4 + 3:i * 4] != 0);\nendfor;\nSCC = (D != 0).\n```"
                 },
                 {
                     "opcode": "46",
                     "name": "S_MOVRELS_B32",
                     "short": "Move from a relative source address",
-                    "description": "Move from a relative source address. SGPR[D.addr].u32 = SGPR[S0.addr+M0[31:0]].u32 Example: The following instruction sequence will perform a move s5 <== s17: s_mov_b32 m0, 10 s_movrels_b32 s5, s7"
+                    "description": "Move from a relative source address.\n```\nSGPR[D.addr].u32 = SGPR[S0.addr+M0[31:0]].u32\n```\nExample: The following instruction sequence will perform a move s5 <== s17:\n```\ns_mov_b32 m0, 10\ns_movrels_b32 s5, s7\n```"
                 },
                 {
                     "opcode": "47",
                     "name": "S_MOVRELS_B64",
                     "short": "Move from a relative source address",
-                    "description": "Move from a relative source address.  The index in M0.u must be even for this operation. SGPR[D.addr].u64 = SGPR[S0.addr+M0[31:0]].u64"
+                    "description": "Move from a relative source address. The index in M0.u must be even for this operation.\n```\nSGPR[D.addr].u64 = SGPR[S0.addr+M0[31:0]].u64\n```"
                 },
                 {
                     "opcode": "48",
                     "name": "S_MOVRELD_B32",
                     "short": "Move to a relative destination address",
-                    "description": "Move to a relative destination address. SGPR[D.addr+M0[31:0]].u32 = SGPR[S0.addr].u32 Example: The following instruction sequence will perform a move s15 <== s7: s_mov_b32 m0, 10 s_movreld_b32 s5, s7"
+                    "description": "Move to a relative destination address.\n```\nSGPR[D.addr+M0[31:0]].u32 = SGPR[S0.addr].u32\n```\nExample: The following instruction sequence will perform a move s15 <== s7:\n```\ns_mov_b32 m0, 10\ns_movreld_b32 s5, s7\n```"
                 },
                 {
                     "opcode": "49",
                     "name": "S_MOVRELD_B64",
                     "short": "Move to a relative destination address",
-                    "description": "Move to a relative destination address.  The index in M0.u must be even for this operation. SGPR[D.addr+M0[31:0]].u64 = SGPR[S0.addr].u64"
+                    "description": "Move to a relative destination address. The index in M0.u must be even for this operation.\n```\nSGPR[D.addr+M0[31:0]].u64 = SGPR[S0.addr].u64\n```"
                 },
                 {
                     "opcode": "52",
                     "name": "S_ABS_I32",
                     "short": "Integer absolute value",
-                    "description": "Integer absolute value. D.i = (S.i < 0 ? -S.i : S.i); SCC = (D.i != 0). Functional examples: S_ABS_I32(0x00000001) => 0x00000001 S_ABS_I32(0x7fffffff) => 0x7fffffff S_ABS_I32(0x80000000) => 0x80000000// Note this is negative! S_ABS_I32(0x80000001) => 0x7fffffff S_ABS_I32(0x80000002) => 0x7ffffffe S_ABS_I32(0xffffffff) => 0x00000001"
+                    "description": "Integer absolute value.\n```\nD.i = (S.i < 0 ? -S.i : S.i);\nSCC = (D.i != 0).\n```\nFunctional examples:\n * S_ABS_I32(0x00000001) => 0x00000001\n * S_ABS_I32(0x7fffffff) => 0x7fffffff\n * S_ABS_I32(0x80000000) => 0x80000000// Note this is negative!\n * S_ABS_I32(0x80000001) => 0x7fffffff\n * S_ABS_I32(0x80000002) => 0x7ffffffe\n * S_ABS_I32(0xffffffff) => 0x00000001"
                 },
                 {
                     "opcode": "55",
                     "name": "S_ANDN1_SAVEEXEC_B64",
                     "short": "Bitwise ANDN1 with EXEC mask",
-                    "description": "Bitwise ANDN1 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = ~S0.u64 & EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise ANDN1 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = ~S0.u64 & EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "56",
                     "name": "S_ORN1_SAVEEXEC_B64",
                     "short": "Bitwise ORN1 with EXEC mask",
-                    "description": "Bitwise ORN1 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u64 = EXEC; EXEC = ~S0.u64 | EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise ORN1 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u64 = EXEC;\nEXEC = ~S0.u64 | EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "57",
                     "name": "S_ANDN1_WREXEC_B64",
                     "short": "Bitwise ANDN1 with EXEC mask",
-                    "description": "Bitwise ANDN1 with EXEC mask.  Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result.  EXEC and the destination SGPRs will have the same value at the end of this instruction.  This instruction is intended to accelerate waterfalling. EXEC = ~S0.u64 & EXEC; D.u64 = EXEC; SCC = (EXEC != 0)."
+                    "description": "Bitwise ANDN1 with EXEC mask. Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result. EXEC and the destination SGPRs will have the same value at the end of this instruction. This instruction is intended to accelerate waterfalling.\n```\nEXEC = ~S0.u64 & EXEC;\nD.u64 = EXEC;\nSCC = (EXEC != 0).\n```"
                 },
                 {
                     "opcode": "58",
                     "name": "S_ANDN2_WREXEC_B64",
                     "short": "Bitwise ANDN2 with EXEC mask",
-                    "description": "Bitwise ANDN2 with EXEC mask.  Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result.  EXEC and the destination SGPRs will have the same value at the end of this instruction.  This instruction is intended to accelerate waterfalling. EXEC = S0.u64 & ~EXEC; D.u64 = EXEC; SCC = (EXEC != 0). In particular, the following sequence of waterfall code is optimized by using a WREXEC instead of two separate scalar ops: // V0 holds the index value per lane // save exec mask for restore at the end s_mov_b64 s2, exec // exec mask of remaining (unprocessed) threads s_mov_b64 s4, exec loop: // get the index value for the first active lane v_readfirstlane_b32  s0, v0 // find all other lanes with same index value v_cmpx_eq s0, v0 <OP>// do the operation using the current EXEC mask. S0 holds the index. // mask out thread that was just executed // s_andn2_b64  s4, s4, exec // s_mov_b64exec, s4 s_andn2_wrexec_b64 s4, s4// replaces above 2 ops // repeat until EXEC==0 s_cbranch_scc1  loop s_mov_b64exec, s2"
+                    "description": "Bitwise ANDN2 with EXEC mask. Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result. EXEC and the destination SGPRs will have the same value at the end of this instruction. This instruction is intended to accelerate waterfalling.\n```\nEXEC = S0.u64 & ~EXEC;\nD.u64 = EXEC;\nSCC = (EXEC != 0).\n```\nIn particular, the following sequence of waterfall code is optimized by using a WREXEC instead of two separate scalar ops:\n```\n// V0 holds the index value per lane\n// save exec mask for restore at the end\ns_mov_b64 s2, exec\n// exec mask of remaining (unprocessed) threads\ns_mov_b64 s4, exec\nloop:\n// get the index value for the first active lane\nv_readfirstlane_b32  s0, v0\n// find all other lanes with same index value\nv_cmpx_eq s0, v0\n<OP>// do the operation using the current EXEC mask. S0 holds the index.\n// mask out thread that was just executed\n// s_andn2_b64  s4, s4, exec\n// s_mov_b64exec, s4\ns_andn2_wrexec_b64 s4, s4// replaces above 2 ops\n// repeat until EXEC==0\ns_cbranch_scc1  loop\ns_mov_b64exec, s2\n```"
                 },
                 {
                     "opcode": "59",
                     "name": "S_BITREPLICATE_B64_B32",
                     "short": "Replicate the low 32 bits of S0 by 'doubling' each bit",
-                    "description": "Replicate the low 32 bits of S0 by 'doubling' each bit. for i in 0 ... 31 do D.u64[i * 2 + 0] = S0.u32[i] D.u64[i * 2 + 1] = S0.u32[i] endfor. This opcode can be used to convert a quad mask into a pixel mask; given quad mask in s0, the following sequence will produce a pixel mask in s2: s_bitreplicate_b64 s2, s0 s_bitreplicate_b64 s2, s2 To perform the inverse operation see S_QUADMASK_B64."
+                    "description": "Replicate the low 32 bits of S0 by 'doubling' each bit.\n```\nfor i in 0 ... 31 do\n\tD.u64[i * 2 + 0] = S0.u32[i]\n\tD.u64[i * 2 + 1] = S0.u32[i]\nendfor.\n```\nThis opcode can be used to convert a quad mask into a pixel mask; given quad mask in s0, the following sequence will produce a pixel mask in s2:\n```\ns_bitreplicate_b64 s2, s0\ns_bitreplicate_b64 s2, s2\n```\nTo perform the inverse operation see S_QUADMASK_B64."
                 },
                 {
                     "opcode": "60",
                     "name": "S_AND_SAVEEXEC_B32",
                     "short": "Bitwise AND with EXEC mask",
-                    "description": "Bitwise AND with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = S0.u32 & EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise AND with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = S0.u32 & EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "61",
                     "name": "S_OR_SAVEEXEC_B32",
                     "short": "Bitwise OR with EXEC mask",
-                    "description": "Bitwise OR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = S0.u32 | EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise OR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = S0.u32 | EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "62",
                     "name": "S_XOR_SAVEEXEC_B32",
                     "short": "Bitwise XOR with EXEC mask",
-                    "description": "Bitwise XOR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = S0.u32 ^ EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise XOR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = S0.u32 ^ EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "63",
                     "name": "S_ANDN2_SAVEEXEC_B32",
                     "short": "Bitwise ANDN2 with EXEC mask",
-                    "description": "Bitwise ANDN2 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = S0.u32 & ~EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise ANDN2 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = S0.u32 & ~EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "64",
                     "name": "S_ORN2_SAVEEXEC_B32",
                     "short": "Bitwise ORN2 with EXEC mask",
-                    "description": "Bitwise ORN2 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = S0.u32 | ~EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise ORN2 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = S0.u32 | ~EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "65",
                     "name": "S_NAND_SAVEEXEC_B32",
                     "short": "Bitwise NAND with EXEC mask",
-                    "description": "Bitwise NAND with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = ~(S0.u32 & EXEC_LO); SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise NAND with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = ~(S0.u32 & EXEC_LO);\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "66",
                     "name": "S_NOR_SAVEEXEC_B32",
                     "short": "Bitwise NOR with EXEC mask",
-                    "description": "Bitwise NOR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = ~(S0.u32 | EXEC_LO); SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise NOR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = ~(S0.u32 | EXEC_LO);\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "67",
                     "name": "S_XNOR_SAVEEXEC_B32",
                     "short": "Bitwise XNOR with EXEC mask",
-                    "description": "Bitwise XNOR with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = ~(S0.u32 ^ EXEC_LO); SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise XNOR with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = ~(S0.u32 ^ EXEC_LO);\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "68",
                     "name": "S_ANDN1_SAVEEXEC_B32",
                     "short": "Bitwise ANDN1 with EXEC mask",
-                    "description": "Bitwise ANDN1 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = ~S0.u32 & EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise ANDN1 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = ~S0.u32 & EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "69",
                     "name": "S_ORN1_SAVEEXEC_B32",
                     "short": "Bitwise ORN1 with EXEC mask",
-                    "description": "Bitwise ORN1 with EXEC mask.  The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed. D.u32 = EXEC_LO; EXEC_LO = ~S0.u32 | EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise ORN1 with EXEC mask. The original EXEC mask is saved to the destination SGPRs before the bitwise operation is performed.\n```\nD.u32 = EXEC_LO;\nEXEC_LO = ~S0.u32 | EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "70",
                     "name": "S_ANDN1_WREXEC_B32",
                     "short": "Bitwise ANDN1 with EXEC mask",
-                    "description": "Bitwise ANDN1 with EXEC mask.  Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result.  EXEC and the destination SGPRs will have the same value at the end of this instruction.  This instruction is intended to accelerate waterfalling. EXEC_LO = ~S0.u32 & EXEC_LO; D.u32 = EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise ANDN1 with EXEC mask. Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result. EXEC and the destination SGPRs will have the same value at the end of this instruction. This instruction is intended to accelerate waterfalling.\n```\nEXEC_LO = ~S0.u32 & EXEC_LO;\nD.u32 = EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "71",
                     "name": "S_ANDN2_WREXEC_B32",
                     "short": "Bitwise ANDN2 with EXEC mask",
-                    "description": "Bitwise ANDN2 with EXEC mask.  Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result.  EXEC and the destination SGPRs will have the same value at the end of this instruction.  This instruction is intended to accelerate waterfalling.  See S_ANDN2_WREXEC_B64 for example code. EXEC_LO = S0.u32 & ~EXEC_LO; D.u32 = EXEC_LO; SCC = (EXEC_LO != 0)."
+                    "description": "Bitwise ANDN2 with EXEC mask. Unlike the SAVEEXEC series of opcodes, the value written to destination SGPRs is the result of the bitwise-op result. EXEC and the destination SGPRs will have the same value at the end of this instruction. This instruction is intended to accelerate waterfalling. See S_ANDN2_WREXEC_B64 for example code.\n```\nEXEC_LO = S0.u32 & ~EXEC_LO;\nD.u32 = EXEC_LO;\nSCC = (EXEC_LO != 0).\n```"
                 },
                 {
                     "opcode": "73",
                     "name": "S_MOVRELSD_2_B32",
                     "short": "Move from a relative source address to a relative destination address, with different offsets",
-                    "description": "Move from a relative source address to a relative destination address, with different offsets. SGPR[D.addr+M0[25:16]].u32 = SGPR[S0.addr+M0[9:0]].u32 Example: The following instruction sequence will perform a move s25 <== s17: s_mov_b32 m0, ((20 << 16) | 10) s_movrelsd_2_b32 s5, s7"
+                    "description": "Move from a relative source address to a relative destination address, with different offsets.\n```\nSGPR[D.addr+M0[25:16]].u32 = SGPR[S0.addr+M0[9:0]].u32\n```\nExample: The following instruction sequence will perform a move s25 <== s17:\n```\ns_mov_b32 m0, ((20 << 16) | 10)\ns_movrelsd_2_b32 s5, s7\n```\n"
                 }
             ]
         },
