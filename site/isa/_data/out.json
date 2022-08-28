@@ -1003,61 +1003,61 @@
                     "opcode": "0",
                     "name": "S_NOP",
                     "short": "Do nothing",
-                    "description": "Do nothing. Repeat NOP 1..16 times based on SIMM16[3:0] -- 0x0 = 1 time, 0xf = 16 times. Examples: s_nop 0        // Wait 1 cycle. s_nop 0xf      // Wait 16 cycles."
+                    "description": "Do nothing. Repeat NOP 1..16 times based on SIMM16[3:0] -- 0x0 = 1 time, 0xf = 16 times. Examples:\n * s_nop 0        // Wait 1 cycle.\n * s_nop 0xf      // Wait 16 cycles."
                 },
                 {
                     "opcode": "1",
                     "name": "S_ENDPGM",
                     "short": "End of program; terminate wavefront",
-                    "description": "End of program; terminate wavefront.  The hardware implicitly executes S_WAITCNT 0 and S_WAITCNT_VSCNT 0 before executing this instruction.  See S_ENDPGM_SAVED for the context-switch version of this instruction and S_ENDPGM_ORDERED_PS_DONE for the POPS critical region version of this instruction."
+                    "description": "End of program; terminate wavefront. The hardware implicitly executes S_WAITCNT 0 and S_WAITCNT_VSCNT 0 before executing this instruction. See S_ENDPGM_SAVED for the context-switch version of this instruction and S_ENDPGM_ORDERED_PS_DONE for the POPS critical region version of this instruction."
                 },
                 {
                     "opcode": "2",
                     "name": "S_BRANCH",
                     "short": "Perform an unconditional short jump",
-                    "description": "Perform an unconditional short jump.  For a long jump, use S_SETPC_B64. PC = PC + signext(SIMM16 * 4) + 4. // short jump. Examples: s_branch label   // Set SIMM16 = +4 = 0x0004 s_nop 0   // 4 bytes label: s_nop 0   // 4 bytes s_branch label   // Set SIMM16 = -8 = 0xfff8"
+                    "description": "Perform an unconditional short jump. For a long jump, use S_SETPC_B64.\n```\nPC = PC + signext(SIMM16 * 4) + 4. // short jump.\n```\nExamples:\n```\n\ts_branch label   // Set SIMM16 = +4 = 0x0004\n\ts_nop 0   // 4 bytes\nlabel:\n\ts_nop 0   // 4 bytes\n\ts_branch label   // Set SIMM16 = -8 = 0xfff8\n```"
                 },
                 {
                     "opcode": "3",
                     "name": "S_WAKEUP",
                     "short": "Allow a wave to 'ping' all the other waves in its threadgroup to force them to wake up early from an S_SLEEP instruction",
-                    "description": "Allow a wave to 'ping' all the other waves in its threadgroup to force them to wake up early from an S_SLEEP instruction. The ping is ignored if the waves are not sleeping.  This allows for efficient polling on a memory location. The waves which are polling can sit in a long S_SLEEP between memory reads, but the wave which writes the value can tell them all to wake up early now that the data is available. This is useful for fBarrier implementations (speedup).  This method is also safe from races because if any wave misses the ping, everything still works fine (waves which missed it just complete their S_SLEEP). If the wave executing S_WAKEUP is in a threadgroup (in_tg set), then it will wake up all waves associated with the same threadgroup ID. Otherwise, S_WAKEUP is treated as an S_NOP."
+                    "description": "Allow a wave to 'ping' all the other waves in its threadgroup to force them to wake up early from an S_SLEEP instruction. The ping is ignored if the waves are not sleeping. This allows for efficient polling on a memory location. The waves which are polling can sit in a long S_SLEEP between memory reads, but the wave which writes the value can tell them all to wake up early now that the data is available. This is useful for fBarrier implementations (speedup). This method is also safe from races because if any wave misses the ping, everything still works fine (waves which missed it just complete their S_SLEEP).\n\nIf the wave executing S_WAKEUP is in a threadgroup (in_tg set), then it will wake up all waves associated with the same threadgroup ID. Otherwise, S_WAKEUP is treated as an S_NOP."
                 },
                 {
                     "opcode": "4",
                     "name": "S_CBRANCH_SCC0",
                     "short": "Perform a conditional short jump when SCC is zero",
-                    "description": "Perform a conditional short jump when SCC is zero. if(SCC == 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": "Perform a conditional short jump when SCC is zero.\n```\nif(SCC == 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "5",
                     "name": "S_CBRANCH_SCC1",
                     "short": "Perform a conditional short jump when SCC is one",
-                    "description": "Perform a conditional short jump when SCC is one. if(SCC == 1) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": "Perform a conditional short jump when SCC is one.\n```\nif(SCC == 1) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "6",
                     "name": "S_CBRANCH_VCCZ",
                     "short": "Perform a conditional short jump when VCC is zero",
-                    "description": "Perform a conditional short jump when VCC is zero. if(VCC == 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": "Perform a conditional short jump when VCC is zero.\n```\nif(VCC == 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "7",
                     "name": "S_CBRANCH_VCCNZ",
                     "short": "Perform a conditional short jump when VCC is nonzero",
-                    "description": "Perform a conditional short jump when VCC is nonzero. if(VCC != 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": "Perform a conditional short jump when VCC is nonzero.\n```\nif(VCC != 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "8",
                     "name": "S_CBRANCH_EXECZ",
                     "short": "Perform a conditional short jump when EXEC is zero",
-                    "description": "Perform a conditional short jump when EXEC is zero. if(EXEC == 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": "Perform a conditional short jump when EXEC is zero.\n```\nif(EXEC == 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "9",
                     "name": "S_CBRANCH_EXECNZ",
                     "short": "Perform a conditional short jump when EXEC is nonzero",
-                    "description": "Perform a conditional short jump when EXEC is nonzero. if(EXEC != 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": "Perform a conditional short jump when EXEC is nonzero.\n```\nif(EXEC != 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "10",
@@ -1075,25 +1075,25 @@
                     "opcode": "12",
                     "name": "S_WAITCNT",
                     "short": "Wait for the counts of outstanding lds, vector-memory and export/vmem-write-data to be at or below the specified levels",
-                    "description": "Wait for the counts of outstanding lds, vector-memory and export/vmem-write-data to be at or below the specified levels. Waits for all of the following conditions to hold before continuing: vmcnt <= {SIMM16[15:14], SIMM16[3:0]} expcnt <= SIMM16[6:4] lgkmcnt <= SIMM16[13:8] NOTE: VMCNT only counts vector memory loads, image sample instructions, and vector memory atomics that return data.  Contrast with the VSCNT counter. See also S_WAITCNT_VSCNT."
+                    "description": "Wait for the counts of outstanding lds, vector-memory and export/vmem-write-data to be at or below the specified levels.\n\nWaits for all of the following conditions to hold before continuing:\n```\nvmcnt <= {SIMM16[15:14], SIMM16[3:0]}\nexpcnt <= SIMM16[6:4]\nlgkmcnt <= SIMM16[13:8]\n```\nNOTE: VMCNT only counts vector memory loads, image sample instructions, and vector memory atomics that return data.  Contrast with the VSCNT counter.\n\nSee also S_WAITCNT_VSCNT."
                 },
                 {
                     "opcode": "13",
                     "name": "S_SETHALT",
                     "short": "S_SETHALT can set/clear the HALT or FATAL_HALT status bits",
-                    "description": "S_SETHALT can set/clear the HALT or FATAL_HALT status bits.  The particular status bit is chosen by halt type control as indicated in SIMM16[2]; 0 = HALT bit select; 1 = FATAL_HALT bit select. When halt type control is set to 0 = HALT bit select: Set HALT bit to value of SIMM16[0]; 1 = halt, 0 = clear HALT bit. The halt flag is ignored while PRIV == 1 (inside trap handlers) but the shader will halt after the handler returns if HALT is still set at that time. When halt type control is set to 1 = FATAL HALT bit select: Set FATAL_HALT bit to value of SIMM16[0]; 1 = fatal_halt, 0 = clear FATAL_HALT bit.  Setting the fatal_halt flag halts the shader in or outside of the trap handlers."
+                    "description": "S_SETHALT can set/clear the HALT or FATAL_HALT status bits. The particular status bit is chosen by halt type control as indicated in SIMM16[2]; 0 = HALT bit select; 1 = FATAL_HALT bit select.\n\nWhen halt type control is set to 0 = HALT bit select: Set HALT bit to value of SIMM16[0]; 1 = halt, 0 = clear HALT bit. The halt flag is ignored while PRIV == 1 (inside trap handlers) but the shader will halt after the handler returns if HALT is still set at that time.\n\nWhen halt type control is set to 1 = FATAL HALT bit select: Set FATAL_HALT bit to value of SIMM16[0]; 1 = fatal_halt, 0 = clear FATAL_HALT bit.  Setting the fatal_halt flag halts the shader in or outside of the trap handlers."
                 },
                 {
                     "opcode": "14",
                     "name": "S_SLEEP",
                     "short": "Cause a wave to sleep for (64*(SIMM16[6:0]-1) ",
-                    "description": "Cause a wave to sleep for (64*(SIMM16[6:0]-1) .. 64*SIMM16[6:0]) clocks.  The exact amount of delay is approximate.  Compare with S_NOP.  When SIMM16[6:0] is zero then no sleep occurs. Examples: s_sleep 0      // Wait for 0 clocks. s_sleep 1      // Wait for 1-64 clocks. s_sleep 2      // Wait for 65-128 clocks."
+                    "description": "Cause a wave to sleep for (64*(SIMM16[6:0]-1) .. 64*SIMM16[6:0]) clocks.  The exact amount of delay is approximate.  Compare with S_NOP.  When SIMM16[6:0] is zero then no sleep occurs.\n\nExamples:\n```\ns_sleep 0      // Wait for 0 clocks.\ns_sleep 1      // Wait for 1-64 clocks.\ns_sleep 2      // Wait for 65-128 clocks.\n```"
                 },
                 {
                     "opcode": "15",
                     "name": "S_SETPRIO",
                     "short": "User settable wave priority is set to SIMM16[1:0]",
-                    "description": "User settable wave priority is set to SIMM16[1:0]. 0 = lowest, 3 = highest.  The overall wave priority is {SPIPrio[1:0] + UserPrio[1:0], WaveAge[3:0]}."
+                    "description": "User settable wave priority is set to SIMM16[1:0]. 0 = lowest, 3 = highest. The overall wave priority is {SPIPrio[1:0] + UserPrio[1:0], WaveAge[3:0]}."
                 },
                 {
                     "opcode": "16",
@@ -1111,7 +1111,7 @@
                     "opcode": "18",
                     "name": "S_TRAP",
                     "short": "Enter the trap handler",
-                    "description": "Enter the trap handler.  This instruction may be generated internally as well in response to a host trap (HT = 1) or an exception.  TrapID 0 is reserved for hardware use and should not be used in a shader-generated trap. TrapID = SIMM16[7:0]; Wait for all instructions to complete; {TTMP1, TTMP0} = {1'h0, PCRewind[5:0], HT[0], TrapID[7:0], PC[47:0]}; PC = TBA; // trap base address PRIV = 1."
+                    "description": "Enter the trap handler.  This instruction may be generated internally as well in response to a host trap (HT = 1) or an exception. TrapID 0 is reserved for hardware use and should not be used in a shader-generated trap.\n```\nTrapID = SIMM16[7:0];\nWait for all instructions to complete;\n{TTMP1, TTMP0} = {1'h0, PCRewind[5:0], HT[0], TrapID[7:0], PC[47:0]};\nPC = TBA; // trap base address\nPRIV = 1.\n```"
                 },
                 {
                     "opcode": "19",
@@ -1141,61 +1141,61 @@
                     "opcode": "23",
                     "name": "S_CBRANCH_CDBGSYS",
                     "short": " Perform a conditional short jump when the system debug flag is set",
-                    "description": " Perform a conditional short jump when the system debug flag is set. if(conditional_debug_system != 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": " Perform a conditional short jump when the system debug flag is set.\n```\nif(conditional_debug_system != 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "24",
                     "name": "S_CBRANCH_CDBGUSER",
                     "short": " Perform a conditional short jump when the user debug flag is set",
-                    "description": " Perform a conditional short jump when the user debug flag is set. if(conditional_debug_user != 0) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": " Perform a conditional short jump when the user debug flag is set.\n```\nif(conditional_debug_user != 0) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "25",
                     "name": "S_CBRANCH_CDBGSYS_OR_USER",
                     "short": " Perform a conditional short jump when either the system or the user debug flag are set",
-                    "description": " Perform a conditional short jump when either the system or the user debug flag are set. if(conditional_debug_system || conditional_debug_user) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": " Perform a conditional short jump when either the system or the user debug flag are set.\n```\nif(conditional_debug_system || conditional_debug_user) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "26",
                     "name": "S_CBRANCH_CDBGSYS_AND_USER",
                     "short": " Perform a conditional short jump when both the system and the user debug flag are set",
-                    "description": " Perform a conditional short jump when both the system and the user debug flag are set. if(conditional_debug_system && conditional_debug_user) then PC = PC + signext(SIMM16 * 4) + 4; endif."
+                    "description": " Perform a conditional short jump when both the system and the user debug flag are set.\n```\nif(conditional_debug_system && conditional_debug_user) then\n\tPC = PC + signext(SIMM16 * 4) + 4;\nendif.\n```"
                 },
                 {
                     "opcode": "27",
                     "name": "S_ENDPGM_SAVED",
                     "short": "End of program; signal that a wave has been saved by the context-switch trap handler and terminate wavefront",
-                    "description": "End of program; signal that a wave has been saved by the context-switch trap handler and terminate wavefront.  The hardware implicitly executes S_WAITCNT 0 and S_WAITCNT_VSCNT 0 before executing this instruction.  See S_ENDPGM for additional variants."
+                    "description": "End of program; signal that a wave has been saved by the context-switch trap handler and terminate wavefront. The hardware implicitly executes S_WAITCNT 0 and S_WAITCNT_VSCNT 0 before executing this instruction. See S_ENDPGM for additional variants."
                 },
                 {
                     "opcode": "30",
                     "name": "S_ENDPGM_ORDERED_PS_DONE",
                     "short": " End of program; signal that a wave has exited its POPS critical section and terminate wavefront",
-                    "description": " End of program; signal that a wave has exited its POPS critical section and terminate wavefront.  The hardware implicitly executes S_WAITCNT 0 and S_WAITCNT_VSCNT 0 before executing this instruction. This instruction is an optimization that combines S_SENDMSG(MSG_ORDERED_PS_DONE) and S_ENDPGM; there may be cases where you still need to send the message separately, in which case the shader must end with a regular S_ENDPGM instruction. See S_ENDPGM for additional variants."
+                    "description": " End of program; signal that a wave has exited its POPS critical section and terminate wavefront. The hardware implicitly executes S_WAITCNT 0 and S_WAITCNT_VSCNT 0 before executing this instruction. This instruction is an optimization that combines S_SENDMSG(MSG_ORDERED_PS_DONE) and S_ENDPGM; there may be cases where you still need to send the message separately, in which case the shader must end with a regular S_ENDPGM instruction. See S_ENDPGM for additional variants."
                 },
                 {
                     "opcode": "31",
                     "name": "S_CODE_END",
                     "short": "Generate an illegal instruction interrupt",
-                    "description": "Generate an illegal instruction interrupt. This instruction should NEVER appear in typical shader code.  It is used to pad the end of a shader program to make it easier for analysis programs to locate the end of a shader program buffer. Use of this opcode in an embedded shader block may cause analysis tools to fail. To unambiguously mark the end of a shader buffer, this instruction must be specified five times in a row (total of 20 bytes) and analysis tools must ensure the opcode occurs at least five times to be certain they are at the end of the buffer. This is because the bit pattern generated by this opcode could incidentally appear in a valid instruction's second dword, literal constant or as part of a multi-DWORD image instruction. In short: do not embed this opcode in the middle of a valid shader program. DO use this opcode 5 times at the end of a shader program to clearly mark the end of the program. Example: ... s_endpgm       // last real instruction in shader buffer s_code_end     // 1 s_code_end     // 2 s_code_end     // 3 s_code_end     // 4 s_code_end     // done!"
+                    "description": "Generate an illegal instruction interrupt.\n\nThis instruction should NEVER appear in typical shader code. It is used to pad the end of a shader program to make it easier for analysis programs to locate the end of a shader program buffer. Use of this opcode in an embedded shader block may cause analysis tools to fail.\n\nTo unambiguously mark the end of a shader buffer, this instruction must be specified five times in a row (total of 20 bytes) and analysis tools must ensure the opcode occurs at least five times to be certain they are at the end of the buffer. This is because the bit pattern generated by this opcode could incidentally appear in a valid instruction's second dword, literal constant or as part of a multi-DWORD image instruction.\n\nIn short: do not embed this opcode in the middle of a valid shader program. DO use this opcode 5 times at the end of a shader program to clearly mark the end of the program.\n\nExample:\n```\n... s_endpgm       // last real instruction in shader buffer\ns_code_end     // 1\ns_code_end     // 2\ns_code_end     // 3\ns_code_end     // 4\ns_code_end     // done!\n```"
                 },
                 {
                     "opcode": "32",
                     "name": "S_INST_PREFETCH",
                     "short": "Change instruction prefetch mode",
-                    "description": "Change instruction prefetch mode. SIMM16[1:0] specifies the prefetch mode to switch to. Defined prefetch modes are: 0: reserved 1: SQ_PREFETCH_1_LINE -- prefetch 1 line 2: SQ_PREFETCH_2_LINES -- prefetch 2 lines 3: SQ_PREFETCH_3_LINES -- prefetch 3 lines SIMM16[15:2] must be set to zero."
+                    "description": "Change instruction prefetch mode.\n\nSIMM16[1:0] specifies the prefetch mode to switch to. Defined prefetch modes are:\n * 0: reserved\n * 1: SQ_PREFETCH_1_LINE -- prefetch 1 line\n * 2: SQ_PREFETCH_2_LINES -- prefetch 2 lines\n * 3: SQ_PREFETCH_3_LINES -- prefetch 3 lines\n\nSIMM16[15:2] must be set to zero."
                 },
                 {
                     "opcode": "33",
                     "name": "S_CLAUSE",
                     "short": "Mark the beginning of a clause",
-                    "description": "Mark the beginning of a clause. The next instruction determines the clause type, which may be one of the following types. Texture, Buffer, Global, Scratch (clause may not mix atomics, loads & stores) Flat (loads, stores and atomics may not be combined in a clause) LDS SMEM VALU Halting and killing a wave will break the clause. The clause length is: (SIMM16[5:0] + 1), and clauses must be 2 instructions or longer and no more than 63 instructions. SIMM16[11:8] determines the number of instructions per clause break, in the range 0..15. If SIMM16[11:8] == 0 then there are no clause breaks. The following instruction types cannot appear in a clause: SALU Export Branch Message GDS"
+                    "description": "Mark the beginning of a clause. The next instruction determines the clause type, which may be one of the following types.\n * Texture, Buffer, Global, Scratch (clause may not mix atomics, loads & stores)\n * Flat (loads, stores and atomics may not be combined in a clause)\n * LDS\n * SMEM\n * VALU\n\nHalting and killing a wave will break the clause.\n\nThe clause length is: (SIMM16[5:0] + 1), and clauses must be 2 instructions or longer and no more than 63 instructions.\n\nSIMM16[11:8] determines the number of instructions per clause break, in the range 0..15. If SIMM16[11:8] == 0 then there are no clause breaks.\n\nThe following instruction types cannot appear in a clause:\n * SALU\n * Export\n * Branch\n * Message\n * GDS"
                 },
                 {
                     "opcode": "35",
                     "name": "S_WAITCNT_DEPCTR",
                     "short": "Bit mask of which dependency counters to wait to be zero, intended for debug and bug-workarounds",
-                    "description": "Bit mask of which dependency counters to wait to be zero, intended for debug and bug-workarounds. Waits for all of the following conditions to hold before continuing: va_vdst <= SIMM16[15:12] || SIMM16[15:12] == 0xf va_sdst <= SIMM16[11:9] || SIMM16[11:9] == 0x7 va_ssrc == 0 || SIMM16[8] == 1 hold_cnt == 0 || SIMM16[7] == 1 vm_vsrc <= SIMM16[4:2] || SIMM16[4:2] == 0x7 va_vcc == 0 || SIMM16[1] == 1 sa_sdst == 0 || SIMM16[0] == 1 Some wait values are smaller than the counters: the max wait value means don't wait on this counter.  For example, VM_VSRC is 4 bits, but the wait field for VM_VSRC is only 3 bits.  The value 7 means don't wait on VM_VSRC, 6 means wait for VM_VSRC <= 6, etc.  The wait value for VA_VCC is just 1 bit even though the counter is 3 bits: 0 = wait for va_vcc==0, 1 = don't wait on va_vcc."
+                    "description": "Bit mask of which dependency counters to wait to be zero, intended for debug and bug-workarounds.\nWaits for all of the following conditions to hold before continuing:\n```\nva_vdst <= SIMM16[15:12] || SIMM16[15:12] == 0xf\nva_sdst <= SIMM16[11:9] || SIMM16[11:9] == 0x7\nva_ssrc == 0 || SIMM16[8] == 1 hold_cnt == 0 || SIMM16[7] == 1\nvm_vsrc <= SIMM16[4:2] || SIMM16[4:2] == 0x7\nva_vcc == 0 || SIMM16[1] == 1\nsa_sdst == 0 || SIMM16[0] == 1\n```\nSome wait values are smaller than the counters: the max wait value means don't wait on this counter.  For example, VM_VSRC is 4 bits, but the wait field for VM_VSRC is only 3 bits.  The value 7 means don't wait on VM_VSRC, 6 means wait for VM_VSRC <= 6, etc.  The wait value for VA_VCC is just 1 bit even though the counter is 3 bits: 0 = wait for va_vcc==0, 1 = don't wait on va_vcc."
                 },
                 {
                     "opcode": "36",
