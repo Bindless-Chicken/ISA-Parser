@@ -1329,283 +1329,283 @@
                     "opcode": "1",
                     "name": "V_CNDMASK_B32",
                     "short": "Conditional mask on each thread",
-                    "description": "Conditional mask on each thread. In VOP3 the VCC source may be a scalar GPR specified in S2.u. Floating-point modifiers are valid for this instruction if S0.u and S1.u are 32-bit floating point values. This instruction is suitable for negating or taking the absolute value of a floating-point value. D.u32 = VCC ? S1.u32 : S0.u32."
+                    "description": "Conditional mask on each thread. In VOP3 the VCC source may be a scalar GPR specified in S2.u.\n\nFloating-point modifiers are valid for this instruction if S0.u and S1.u are 32-bit floating point values. This instruction is suitable for negating or taking the absolute value of a floating-point value.\n```\nD.u32 = VCC ? S1.u32 : S0.u32.\n```"
                 },
                 {
                     "opcode": "2",
                     "name": "V_DOT2C_F32_F16",
                     "short": "Dot product of packed FP16 values, accumulate with destination",
-                    "description": "Dot product of packed FP16 values, accumulate with destination. D.f32 = S0.f16[0] * S1.f16[0] + S0.f16[1] * S1.f16[1] + D.f32."
+                    "description": "Dot product of packed FP16 values, accumulate with destination.\n```\nD.f32 =\n\tS0.f16[0] * S1.f16[0] +\n\tS0.f16[1] * S1.f16[1] + D.f32.\n```"
                 },
                 {
                     "opcode": "3",
                     "name": "V_ADD_F32",
                     "short": "Add two single-precision values",
-                    "description": "Add two single-precision values.  0.5ULP precision, denormals are supported. D.f32 = S0.f32 + S1.f32."
+                    "description": "Add two single-precision values.  0.5ULP precision, denormals are supported.\n```\nD.f32 = S0.f32 + S1.f32.\n```"
                 },
                 {
                     "opcode": "4",
                     "name": "V_SUB_F32",
                     "short": "Subtract the second single-precision input from the first input",
-                    "description": "Subtract the second single-precision input from the first input. D.f32 = S0.f32 - S1.f32."
+                    "description": "Subtract the second single-precision input from the first input.\n```\nD.f32 = S0.f32 - S1.f32.\n```"
                 },
                 {
                     "opcode": "5",
                     "name": "V_SUBREV_F32",
                     "short": "Subtract the first single-precision input from the second input",
-                    "description": "Subtract the first single-precision input from the second input. D.f32 = S1.f32 - S0.f32."
+                    "description": "Subtract the first single-precision input from the second input.\n```\nD.f32 = S1.f32 - S0.f32.\n```"
                 },
                 {
                     "opcode": "6",
                     "name": "V_FMAC_LEGACY_F32",
                     "short": "Multiply two single-precision values and accumulate the result with the destination",
-                    "description": "Multiply two single-precision values and accumulate the result with the destination.  Follows DX9 rules where 0.0 times anything produces 0.0 (this is not IEEE compliant). D.f32 = S0.f32 * S1.f32 + S2.f32. // DX9 rules, 0.0 * x = 0.0"
+                    "description": "Multiply two single-precision values and accumulate the result with the destination.  Follows DX9 rules where 0.0 times anything produces 0.0 (this is not IEEE compliant).\n```\nD.f32 = S0.f32 * S1.f32 + S2.f32. // DX9 rules, 0.0 * x = 0.0\n```"
                 },
                 {
                     "opcode": "7",
                     "name": "V_MUL_LEGACY_F32",
                     "short": "Multiply two single-precision values",
-                    "description": "Multiply two single-precision values.  Follows DX9 rules where 0.0 times anything produces 0.0 (this is not IEEE compliant). D.f32 = S0.f32 * S1.f32. // DX9 rules, 0.0*x = 0.0"
+                    "description": "Multiply two single-precision values.  Follows DX9 rules where 0.0 times anything produces 0.0 (this is not IEEE compliant).\n```\nD.f32 = S0.f32 * S1.f32. // DX9 rules, 0.0*x = 0.0\n```"
                 },
                 {
                     "opcode": "8",
                     "name": "V_MUL_F32",
                     "short": "Multiply two single-precision values",
-                    "description": "Multiply two single-precision values.  0.5ULP precision, denormals are supported. D.f32 = S0.f32 * S1.f32."
+                    "description": "Multiply two single-precision values.  0.5ULP precision, denormals are supported.\n```\nD.f32 = S0.f32 * S1.f32.\n```"
                 },
                 {
                     "opcode": "9",
                     "name": "V_MUL_I32_I24",
                     "short": "Multiply two signed 24-bit integers and store the result as a signed 32-bit integer",
-                    "description": "Multiply two signed 24-bit integers and store the result as a signed 32-bit integer.  This opcode is as efficient as basic single-precision opcodes since it utilizes the single-precision floating point multiplier.  See also V_MUL_HI_I32_I24. D.i32 = S0.i24 * S1.i24."
+                    "description": "Multiply two signed 24-bit integers and store the result as a signed 32-bit integer.  This opcode is as efficient as basic single-precision opcodes since it utilizes the single-precision floating point multiplier. See also V_MUL_HI_I32_I24.\n```\nD.i32 = S0.i24 * S1.i24.\n```"
                 },
                 {
                     "opcode": "10",
                     "name": "V_MUL_HI_I32_I24",
                     "short": "Multiply two signed 24-bit integers and store the high 32 bits of the result as a signed 32-bit integer",
-                    "description": "Multiply two signed 24-bit integers and store the high 32 bits of the result as a signed 32-bit integer.  See also V_MUL_I32_I24. D.i32 = (S0.i24 * S1.i24)>>32;"
+                    "description": "Multiply two signed 24-bit integers and store the high 32 bits of the result as a signed 32-bit integer. See also V_MUL_I32_I24.\n```\nD.i32 = (S0.i24 * S1.i24)>>32;\n```"
                 },
                 {
                     "opcode": "11",
                     "name": "V_MUL_U32_U24",
                     "short": "Multiply two unsigned 24-bit integers and store the result as an unsigned 32-bit integer",
-                    "description": "Multiply two unsigned 24-bit integers and store the result as an unsigned 32-bit integer.  This opcode is as efficient as basic single-precision opcodes since it utilizes the single-precision floating point multiplier.  See also V_MUL_HI_U32_U24. D.u32 = S0.u24 * S1.u24."
+                    "description": "Multiply two unsigned 24-bit integers and store the result as an unsigned 32-bit integer.  This opcode is as efficient as basic single-precision opcodes since it utilizes the single-precision floating point multiplier. See also V_MUL_HI_U32_U24.\n```\nD.u32 = S0.u24 * S1.u24.\n```"
                 },
                 {
                     "opcode": "12",
                     "name": "V_MUL_HI_U32_U24",
                     "short": "Multiply two unsigned 24-bit integers and store the high 32 bits of the result as an unsigned 32-bit integer",
-                    "description": "Multiply two unsigned 24-bit integers and store the high 32 bits of the result as an unsigned 32-bit integer.  See also V_MUL_U32_U24. D.u32 = (S0.u24 * S1.u24)>>32."
+                    "description": "Multiply two unsigned 24-bit integers and store the high 32 bits of the result as an unsigned 32-bit integer. See also V_MUL_U32_U24.\n```\nD.u32 = (S0.u24 * S1.u24)>>32.\n```"
                 },
                 {
                     "opcode": "13",
                     "name": "V_DOT4C_I32_I8",
                     "short": "Dot product of packed byte values, accumulate with destination",
-                    "description": "Dot product of packed byte values, accumulate with destination. D.i32 = S0.i8[0] * S1.i8[0] + S0.i8[1] * S1.i8[1] + S0.i8[2] * S1.i8[2] + S0.i8[3] * S1.i8[3] + D.i32."
+                    "description": "Dot product of packed byte values, accumulate with destination.\n```\nD.i32 =\n\tS0.i8[0] * S1.i8[0] +\n\tS0.i8[1] * S1.i8[1] +\n\tS0.i8[2] * S1.i8[2] +\n\tS0.i8[3] * S1.i8[3] + D.i32.\n```"
                 },
                 {
                     "opcode": "15",
                     "name": "V_MIN_F32",
                     "short": "Compute the minimum of two single-precision floats",
-                    "description": "Compute the minimum of two single-precision floats. D.f32 = min(S0.f32,S1.f32); if (IEEE_MODE && S0.f == sNaN) D.f = Quiet(S0.f); else if (IEEE_MODE && S1.f == sNaN) D.f = Quiet(S1.f); else if (S0.f == NaN) D.f = S1.f; else if (S1.f == NaN) D.f = S0.f; else if (S0.f == +0.0 && S1.f == -0.0) D.f = S1.f; else if (S0.f == -0.0 && S1.f == +0.0) D.f = S0.f; else // Note: there's no IEEE special case here like there is for V_MAX_F32. D.f = (S0.f < S1.f ? S0.f : S1.f); endif."
+                    "description": "Compute the minimum of two single-precision floats.\n```\nD.f32 = min(S0.f32,S1.f32);\nif (IEEE_MODE && S0.f == sNaN)\n\tD.f = Quiet(S0.f);\nelse if (IEEE_MODE && S1.f == sNaN)\n\tD.f = Quiet(S1.f);\nelse if (S0.f == NaN)\n\tD.f = S1.f;\nelse if (S1.f == NaN)\n\tD.f = S0.f;\nelse if (S0.f == +0.0 && S1.f == -0.0)\n\tD.f = S1.f;\nelse if (S0.f == -0.0 && S1.f == +0.0)\n\tD.f = S0.f;\nelse // Note: there's no IEEE special case here like there is for V_MAX_F32.\n\tD.f = (S0.f < S1.f ? S0.f : S1.f);\nendif.\n```"
                 },
                 {
                     "opcode": "16",
                     "name": "V_MAX_F32",
                     "short": "Compute the maximum of two single-precision floats",
-                    "description": "Compute the maximum of two single-precision floats. D.f32 = max(S0.f32,S1.f32); if (IEEE_MODE && S0.f == sNaN) D.f = Quiet(S0.f); else if (IEEE_MODE && S1.f == sNaN) D.f = Quiet(S1.f); else if (S0.f == NaN) D.f = S1.f; else if (S1.f == NaN) D.f = S0.f; else if (S0.f == +0.0 && S1.f == -0.0) D.f = S0.f; else if (S0.f == -0.0 && S1.f == +0.0) D.f = S1.f; else if (IEEE_MODE) D.f = (S0.f >= S1.f ? S0.f : S1.f); else D.f = (S0.f > S1.f ? S0.f : S1.f); endif."
+                    "description": "Compute the maximum of two single-precision floats.\n```\nD.f32 = max(S0.f32,S1.f32);\nif (IEEE_MODE && S0.f == sNaN)\n\tD.f = Quiet(S0.f);\nelse if (IEEE_MODE && S1.f == sNaN)\n\tD.f = Quiet(S1.f);\nelse if (S0.f == NaN)\n\tD.f = S1.f;\nelse if (S1.f == NaN)\n\tD.f = S0.f;\nelse if (S0.f == +0.0 && S1.f == -0.0)\n\tD.f = S0.f;\nelse if (S0.f == -0.0 && S1.f == +0.0)\n\tD.f = S1.f;\nelse if (IEEE_MODE)\n\tD.f = (S0.f >= S1.f ? S0.f : S1.f);\nelse\n\tD.f = (S0.f > S1.f ? S0.f : S1.f);\nendif.\n```"
                 },
                 {
                     "opcode": "17",
                     "name": "V_MIN_I32",
                     "short": "Compute the minimum of two signed integers",
-                    "description": "Compute the minimum of two signed integers. D.i32 = (S0.i32 < S1.i32 ? S0.i32 : S1.i32)."
+                    "description": "Compute the minimum of two signed integers.\n```\nD.i32 = (S0.i32 < S1.i32 ? S0.i32 : S1.i32).\n```"
                 },
                 {
                     "opcode": "18",
                     "name": "V_MAX_I32",
                     "short": "Compute the maximum of two signed integers",
-                    "description": "Compute the maximum of two signed integers. D.i32 = (S0.i32 >= S1.i32 ? S0.i32 : S1.i32)."
+                    "description": "Compute the maximum of two signed integers.\n```\nD.i32 = (S0.i32 >= S1.i32 ? S0.i32 : S1.i32).\n```"
                 },
                 {
                     "opcode": "19",
                     "name": "V_MIN_U32",
                     "short": "Compute the minimum of two unsigned integers",
-                    "description": "Compute the minimum of two unsigned integers. D.u32 = (S0.u32 < S1.u32 ? S0.u32 : S1.u32)."
+                    "description": "Compute the minimum of two unsigned integers.\n```\nD.u32 = (S0.u32 < S1.u32 ? S0.u32 : S1.u32).\n```"
                 },
                 {
                     "opcode": "20",
                     "name": "V_MAX_U32",
                     "short": "Compute the maximum of two unsigned integers",
-                    "description": "Compute the maximum of two unsigned integers. D.u32 = (S0.u32 >= S1.u32 ? S0.u32 : S1.u32)."
+                    "description": "Compute the maximum of two unsigned integers.\n```\nD.u32 = (S0.u32 >= S1.u32 ? S0.u32 : S1.u32).\n```"
                 },
                 {
                     "opcode": "22",
                     "name": "V_LSHRREV_B32",
                     "short": "Logical shift right with shift count in the first operand",
-                    "description": "Logical shift right with shift count in the first operand. D.u32 = S1.u32 >> S0[4:0]."
+                    "description": "Logical shift right with shift count in the first operand.\n```\nD.u32 = S1.u32 >> S0[4:0].\n```"
                 },
                 {
                     "opcode": "24",
                     "name": "V_ASHRREV_I32",
                     "short": "Arithmetic shift right (preserve sign bit) with shift count in the first operand",
-                    "description": "Arithmetic shift right (preserve sign bit) with shift count in the first operand. D.i32 = S1.i32 >> S0[4:0]."
+                    "description": "Arithmetic shift right (preserve sign bit) with shift count in the first operand.\n```\nD.i32 = S1.i32 >> S0[4:0].\n```"
                 },
                 {
                     "opcode": "26",
                     "name": "V_LSHLREV_B32",
                     "short": "Logical shift left with shift count in the first operand",
-                    "description": "Logical shift left with shift count in the first operand. D.u32 = S1.u32 << S0[4:0]."
+                    "description": "Logical shift left with shift count in the first operand.\n```\nD.u32 = S1.u32 << S0[4:0].\n```"
                 },
                 {
                     "opcode": "27",
                     "name": "V_AND_B32",
                     "short": "Bitwise AND",
-                    "description": "Bitwise AND.  Input and output modifiers not supported. D.u32 = S0.u32 & S1.u32."
+                    "description": "Bitwise AND. Input and output modifiers not supported.\n```\nD.u32 = S0.u32 & S1.u32.\n```"
                 },
                 {
                     "opcode": "28",
                     "name": "V_OR_B32",
                     "short": "Bitwise OR",
-                    "description": "Bitwise OR.  Input and output modifiers not supported. D.u32 = S0.u32 | S1.u32."
+                    "description": "Bitwise OR. Input and output modifiers not supported.\n```\nD.u32 = S0.u32 | S1.u32.\n```"
                 },
                 {
                     "opcode": "29",
                     "name": "V_XOR_B32",
                     "short": "Bitwise XOR",
-                    "description": "Bitwise XOR.  Input and output modifiers not supported. D.u32 = S0.u32 ^ S1.u32."
+                    "description": "Bitwise XOR. Input and output modifiers not supported.\n```\nD.u32 = S0.u32 ^ S1.u32.\n```"
                 },
                 {
                     "opcode": "30",
                     "name": "V_XNOR_B32",
                     "short": "Bitwise XNOR",
-                    "description": "Bitwise XNOR. Input and output modifiers not supported. D.u32 = ~(S0.u32 ^ S1.u32)."
+                    "description": "Bitwise XNOR. Input and output modifiers not supported.\n```\nD.u32 = ~(S0.u32 ^ S1.u32).\n```"
                 },
                 {
                     "opcode": "37",
                     "name": "V_ADD_NC_U32",
                     "short": "Add two unsigned integers",
-                    "description": "Add two unsigned integers. No carry-in or carry-out. D.u32 = S0.u32 + S1.u32."
+                    "description": "Add two unsigned integers. No carry-in or carry-out.\n```\nD.u32 = S0.u32 + S1.u32.\n```"
                 },
                 {
                     "opcode": "38",
                     "name": "V_SUB_NC_U32",
                     "short": "Subtract the second unsigned integer from the first unsigned integer",
-                    "description": "Subtract the second unsigned integer from the first unsigned integer.  No carry-in or carry-out. D.u32 = S0.u32 - S1.u32."
+                    "description": "Subtract the second unsigned integer from the first unsigned integer. No carry-in or carry-out.\n```\nD.u32 = S0.u32 - S1.u32.\n```"
                 },
                 {
                     "opcode": "39",
                     "name": "V_SUBREV_NC_U32",
                     "short": "Subtract the first unsigned integer from the second unsigned integer",
-                    "description": "Subtract the first unsigned integer from the second unsigned integer.  No carry-in or carry-out. D.u32 = S1.u32 - S0.u32."
+                    "description": "Subtract the first unsigned integer from the second unsigned integer. No carry-in or carry-out.\n```\nD.u32 = S1.u32 - S0.u32.\n```"
                 },
                 {
                     "opcode": "40",
                     "name": "V_ADD_CO_CI_U32",
                     "short": "Add two unsigned integers and a carry-in from VCC",
-                    "description": "Add two unsigned integers and a carry-in from VCC.  Store the result and also save the carry-out to VCC.  In VOP3 the VCC destination may be an arbitrary SGPR-pair, and the VCC source comes from the SGPR-pair at S2.u. D.u32 = S0.u32 + S1.u32 + VCC; VCC = S0.u32 + S1.u32 + VCC >= 0x100000000ULL ? 1 : 0."
+                    "description": "Add two unsigned integers and a carry-in from VCC.  Store the result and also save the carry-out to VCC. In VOP3 the VCC destination may be an arbitrary SGPR-pair, and the VCC source comes from the SGPR-pair at S2.u.\n```\nD.u32 = S0.u32 + S1.u32 + VCC;\nVCC = S0.u32 + S1.u32 + VCC >= 0x100000000ULL ? 1 : 0.\n```"
                 },
                 {
                     "opcode": "41",
                     "name": "V_SUB_CO_CI_U32",
                     "short": "Subtract the second unsigned integer from the first unsigned integer and then subtract a carry-in from VCC",
-                    "description": "Subtract the second unsigned integer from the first unsigned integer and then subtract a carry-in from VCC.  Store the result and also save the carry-out to VCC.  In VOP3 the VCC destination may be an arbitrary SGPR-pair, and the VCC source comes from the SGPR-pair at S2.u. D.u32 = S0.u32 - S1.u32 - VCC; VCC = S1.u32 + VCC > S0.u32 ? 1 : 0."
+                    "description": "Subtract the second unsigned integer from the first unsigned integer and then subtract a carry-in from VCC.  Store the result and also save the carry-out to VCC. In VOP3 the VCC destination may be an arbitrary SGPR-pair, and the VCC source comes from the SGPR-pair at S2.u.\n```\nD.u32 = S0.u32 - S1.u32 - VCC;\nVCC = S1.u32 + VCC > S0.u32 ? 1 : 0.\n```"
                 },
                 {
                     "opcode": "42",
                     "name": "V_SUBREV_CO_CI_U3",
                     "short": "Subtract the first unsigned integer from the second unsigned 2 integer and then subtract a carry-in from VCC",
-                    "description": "Subtract the first unsigned integer from the second unsigned 2 integer and then subtract a carry-in from VCC.  Store the result and also save the carry-out to VCC.  In VOP3 the VCC destination may be an arbitrary SGPR-pair, and the VCC source comes from the SGPR-pair at S2.u. D.u32 = S1.u32 - S0.u32 - VCC; VCC = S1.u32 + VCC > S0.u ? 1 : 0."
+                    "description": "Subtract the first unsigned integer from the second unsigned 2 integer and then subtract a carry-in from VCC.  Store the result and also save the carry-out to VCC. In VOP3 the VCC destination may be an arbitrary SGPR-pair, and the VCC source comes from the SGPR-pair at S2.u.\n```\nD.u32 = S1.u32 - S0.u32 - VCC;\nVCC = S1.u32 + VCC > S0.u ? 1 : 0.\n```"
                 },
                 {
                     "opcode": "43",
                     "name": "V_FMAC_F32",
                     "short": "Fused multiply-add of single-precision floats, accumulate with destination",
-                    "description": "Fused multiply-add of single-precision floats, accumulate with destination. D.f32 = S0.f32 * S1.f32 + D.f32. // Fused operation"
+                    "description": "Fused multiply-add of single-precision floats, accumulate with destination.\n```\nD.f32 = S0.f32 * S1.f32 + D.f32. // Fused operation\n```"
                 },
                 {
                     "opcode": "44",
                     "name": "V_FMAMK_F32",
                     "short": "Multiply a single-precision float with a literal constant and add a second single-precision float using fused multiply-add",
-                    "description": "Multiply a single-precision float with a literal constant and add a second single-precision float using fused multiply-add. This opcode cannot use the VOP3 encoding and cannot use input/output modifiers. D.f32 = S0.f32 * K.f32 + S1.f32. // K is a 32-bit literal constant."
+                    "description": "Multiply a single-precision float with a literal constant and add a second single-precision float using fused multiply-add. This opcode cannot use the VOP3 encoding and cannot use input/output modifiers.\n```\nD.f32 = S0.f32 * K.f32 + S1.f32. // K is a 32-bit literal constant.\n```"
                 },
                 {
                     "opcode": "45",
                     "name": "V_FMAAK_F32",
                     "short": "Multiply two single-precision floats and add a literal constant using fused multiply-add",
-                    "description": "Multiply two single-precision floats and add a literal constant using fused multiply-add.  This opcode cannot use the VOP3 encoding and cannot use input/output modifiers. D.f32 = S0.f32 * S1.f32 + K.f32. // K is a 32-bit literal constant."
+                    "description": "Multiply two single-precision floats and add a literal constant using fused multiply-add.  This opcode cannot use the VOP3 encoding and cannot use input/output modifiers.\n```\nD.f32 = S0.f32 * S1.f32 + K.f32. // K is a 32-bit literal constant.\n```"
                 },
                 {
                     "opcode": "47",
                     "name": "V_CVT_PKRTZ_F16_F32",
                     "short": " Convert two single-precision floats into a packed FP16 result and round to zero (ignore the current rounding mode)",
-                    "description": " Convert two single-precision floats into a packed FP16 result and round to zero (ignore the current rounding mode). This opcode is intended for use with 16-bit compressed exports. See V_CVT_F16_F32 for a version that respects the current rounding mode. D.f16_lo = f32_to_f16(S0.f32); D.f16_hi = f32_to_f16(S1.f32). // Round-toward-zero regardless of current round mode setting in hardware."
+                    "description": " Convert two single-precision floats into a packed FP16 result and round to zero (ignore the current rounding mode). This opcode is intended for use with 16-bit compressed exports. See V_CVT_F16_F32 for a version that respects the current rounding mode.\n```\nD.f16_lo = f32_to_f16(S0.f32);\nD.f16_hi = f32_to_f16(S1.f32).\n// Round-toward-zero regardless of current round mode setting in hardware.\n```"
                 },
                 {
                     "opcode": "50",
                     "name": "V_ADD_F16",
                     "short": "Add two FP16 values",
-                    "description": "Add two FP16 values.  0.5ULP precision.  Supports denormals, round mode, exception flags and saturation. D.f16_lo = S0.f16_lo + S1.f16_lo."
+                    "description": "Add two FP16 values. 0.5ULP precision. Supports denormals, round mode, exception flags and saturation.\n```\nD.f16_lo = S0.f16_lo + S1.f16_lo.\n```"
                 },
                 {
                     "opcode": "51",
                     "name": "V_SUB_F16",
                     "short": "Subtract the second FP16 value from the first",
-                    "description": "Subtract the second FP16 value from the first.  0.5ULP precision, Supports denormals, round mode, exception flags and saturation. D.f16_lo = S0.f16_lo - S1.f16_lo."
+                    "description": "Subtract the second FP16 value from the first. 0.5ULP precision, Supports denormals, round mode, exception flags and saturation.\n```\nD.f16_lo = S0.f16_lo - S1.f16_lo.\n```"
                 },
                 {
                     "opcode": "52",
                     "name": "V_SUBREV_F16",
                     "short": "Subtract the first FP16 value from the second",
-                    "description": "Subtract the first FP16 value from the second.  0.5ULP precision.  Supports denormals, round mode, exception flags and saturation. D.f16_lo = S1.f16_lo - S0.f16_lo."
+                    "description": "Subtract the first FP16 value from the second. 0.5ULP precision.  Supports denormals, round mode, exception flags and saturation.\n```\nD.f16_lo = S1.f16_lo - S0.f16_lo.\n```"
                 },
                 {
                     "opcode": "53",
                     "name": "V_MUL_F16",
                     "short": "Multiply two FP16 values",
-                    "description": "Multiply two FP16 values.  0.5ULP precision.  Supports denormals, round mode, exception flags and saturation. D.f16_lo = S0.f16_lo * S1.f16_lo."
+                    "description": "Multiply two FP16 values.  0.5ULP precision. Supports denormals, round mode, exception flags and saturation.\n```\nD.f16_lo = S0.f16_lo * S1.f16_lo.\n```"
                 },
                 {
                     "opcode": "54",
                     "name": "V_FMAC_F16",
                     "short": "Fused multiply-add of FP16 values, accumulate with destination",
-                    "description": "Fused multiply-add of FP16 values, accumulate with destination. 0.5ULP precision.  Supports denormals, round mode, exception flags and saturation. D.f16_lo = S0.f16_lo * S1.f16_lo + D.f16_lo."
+                    "description": "Fused multiply-add of FP16 values, accumulate with destination. 0.5ULP precision. Supports denormals, round mode, exception flags and saturation.\n```\nD.f16_lo = S0.f16_lo * S1.f16_lo + D.f16_lo.\n```"
                 },
                 {
                     "opcode": "55",
                     "name": "V_FMAMK_F16",
                     "short": "Multiply a FP16 value with a literal constant and add a second FP16 value using fused multiply-add",
-                    "description": "Multiply a FP16 value with a literal constant and add a second FP16 value using fused multiply-add.  This opcode cannot use the VOP3 encoding and cannot use input/output modifiers.  Supports round mode, exception flags, saturation. D.f16_lo = S0.f16_lo * K.f16_lo + S1.f16_lo. // K is a 32-bit literal constant stored in the following literal DWORD."
+                    "description": "Multiply a FP16 value with a literal constant and add a second FP16 value using fused multiply-add.  This opcode cannot use the VOP3 encoding and cannot use input/output modifiers.  Supports round mode, exception flags, saturation.\n```\nD.f16_lo = S0.f16_lo * K.f16_lo + S1.f16_lo.\n// K is a 32-bit literal constant stored in the following literal DWORD.\n```"
                 },
                 {
                     "opcode": "56",
                     "name": "V_FMAAK_F16",
                     "short": "Multiply two FP16 values and add a literal constant using fused multiply-add",
-                    "description": "Multiply two FP16 values and add a literal constant using fused multiply-add.  This opcode cannot use the VOP3 encoding and cannot use input/output modifiers.  Supports round mode, exception flags, saturation. D.f16_lo = S0.f16_lo * S1.f16_lo + K.f16_lo. // K is a 32-bit literal constant stored in the following literal DWORD."
+                    "description": "Multiply two FP16 values and add a literal constant using fused multiply-add.  This opcode cannot use the VOP3 encoding and cannot use input/output modifiers.  Supports round mode, exception flags, saturation.\n```\nD.f16_lo = S0.f16_lo * S1.f16_lo + K.f16_lo.\n// K is a 32-bit literal constant stored in the following literal DWORD.\n```"
                 },
                 {
                     "opcode": "57",
                     "name": "V_MAX_F16",
                     "short": "Maximum of two FP16 values",
-                    "description": "Maximum of two FP16 values.  IEEE compliant.  Supports denormals, round mode, exception flags, saturation. D.f16 = max(S0.f16,S1.f16); if (IEEE_MODE && S0.f16 == sNaN) D.f16 = Quiet(S0.f16); else if (IEEE_MODE && S1.f16 == sNaN) D.f16 = Quiet(S1.f16); else if (S0.f16 == NaN) D.f16 = S1.f16; else if (S1.f16 == NaN) D.f16 = S0.f16; else if (S0.f16 == +0.0 && S1.f16 == -0.0) D.f16 = S0.f16; else if (S0.f16 == -0.0 && S1.f16 == +0.0) D.f16 = S1.f16; else if (IEEE_MODE) D.f16 = (S0.f16 >= S1.f16 ? S0.f16 : S1.f16); else D.f16 = (S0.f16 > S1.f16 ? S0.f16 : S1.f16); endif."
+                    "description": "Maximum of two FP16 values. IEEE compliant. Supports denormals, round mode, exception flags, saturation.\n```\nD.f16 = max(S0.f16,S1.f16);\nif (IEEE_MODE && S0.f16 == sNaN)\n\tD.f16 = Quiet(S0.f16);\nelse if (IEEE_MODE && S1.f16 == sNaN)\n\tD.f16 = Quiet(S1.f16);\nelse if (S0.f16 == NaN)\n\tD.f16 = S1.f16;\nelse if (S1.f16 == NaN)\n\tD.f16 = S0.f16;\nelse if (S0.f16 == +0.0 && S1.f16 == -0.0)\n\tD.f16 = S0.f16;\nelse if (S0.f16 == -0.0 && S1.f16 == +0.0)\n\tD.f16 = S1.f16;\nelse if (IEEE_MODE)\n\tD.f16 = (S0.f16 >= S1.f16 ? S0.f16 : S1.f16);\nelse\n\tD.f16 = (S0.f16 > S1.f16 ? S0.f16 : S1.f16);\nendif.\n```"
                 },
                 {
                     "opcode": "58",
                     "name": "V_MIN_F16",
                     "short": "Minimum of two FP16 values",
-                    "description": "Minimum of two FP16 values.  IEEE compliant.  Supports denormals, round mode, exception flags, saturation. D.f16 = min(S0.f16,S1.f16); if (IEEE_MODE && S0.f16 == sNaN) D.f16 = Quiet(S0.f16); else if (IEEE_MODE && S1.f16 == sNaN) D.f16 = Quiet(S1.f16); else if (S0.f16 == NaN) D.f16 = S1.f16; else if (S1.f16 == NaN) D.f16 = S0.f16; else if (S0.f16 == +0.0 && S1.f16 == -0.0) D.f16 = S1.f16; else if (S0.f16 == -0.0 && S1.f16 == +0.0) D.f16 = S0.f16; else // Note: there's no IEEE special case here like there is for V_MAX_F16. D.f16 = (S0.f16 < S1.f16 ? S0.f16 : S1.f16); endif."
+                    "description": "Minimum of two FP16 values. IEEE compliant. Supports denormals, round mode, exception flags, saturation.\n```\nD.f16 = min(S0.f16,S1.f16);\nif (IEEE_MODE && S0.f16 == sNaN)\n\tD.f16 = Quiet(S0.f16);\nelse if (IEEE_MODE && S1.f16 == sNaN)\n\tD.f16 = Quiet(S1.f16);\nelse if (S0.f16 == NaN)\n\tD.f16 = S1.f16;\nelse if (S1.f16 == NaN)\n\tD.f16 = S0.f16;\nelse if (S0.f16 == +0.0 && S1.f16 == -0.0)\n\tD.f16 = S1.f16;\nelse if (S0.f16 == -0.0 && S1.f16 == +0.0)\n\tD.f16 = S0.f16;\nelse // Note: there's no IEEE special case here like there is for V_MAX_F16.\n\tD.f16 = (S0.f16 < S1.f16 ? S0.f16 : S1.f16);\nendif.\n```"
                 },
                 {
                     "opcode": "59",
                     "name": "V_LDEXP_F16",
                     "short": "Multiply an FP16 value by an integral power of 2, compare with the ldexp() function in C",
-                    "description": "Multiply an FP16 value by an integral power of 2, compare with the ldexp() function in C.  Note that the S1 has a format of f16 since floating point literal constants are interpreted as 16 bit value for this opcode. D.f16 = S0.f16 * (2 ** S1.i16)."
+                    "description": "Multiply an FP16 value by an integral power of 2, compare with the ldexp() function in C.  Note that the S1 has a format of f16 since floating point literal constants are interpreted as 16 bit value for this opcode.\n```\nD.f16 = S0.f16 * (2 ** S1.i16).\n```"
                 },
                 {
                     "opcode": "60",
                     "name": "V_PK_FMAC_F16",
                     "short": "Multiply packed FP16 values and accumulate with destination",
-                    "description": "Multiply packed FP16 values and accumulate with destination. VOP2 version of V_PK_FMA_F16 with third source VGPR address is the destination. D.f16_lo = S0.f16_lo * S1.f16_lo + D.f16_lo; D.f16_hi = S0.f16_hi * S1.f16_hi + D.f16_hi."
+                    "description": "Multiply packed FP16 values and accumulate with destination. VOP2 version of V_PK_FMA_F16 with third source VGPR address is the destination.\n```\nD.f16_lo = S0.f16_lo * S1.f16_lo + D.f16_lo;\nD.f16_hi = S0.f16_hi * S1.f16_hi + D.f16_hi.\n```"
                 }
             ]
         },
